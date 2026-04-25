@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CalCount — Calorie Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Epilogue:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #111210; --surface: #1a1c19; --surface2: #222420; --surface3: #2a2d28;
+  --border: #2e312c; --border2: #383b35;
+  --accent: #c8f060; --accent-dim: #8aaa3a; --accent-glow: rgba(200,240,96,0.12);
+  --text: #e8ead4; --text-dim: #8a8e7a; --text-muted: #555850;
+  --red: #ff6b6b; --orange: #f0a050; --radius: 12px; --radius-sm: 8px;
+}
+html { font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: 'Epilogue', sans-serif; min-height: 100vh; overflow-x: hidden; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(ellipse 80% 50% at 20% -10%, rgba(200,240,96,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(200,240,96,0.04) 0%, transparent 50%);
+}
+.app { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+
+header { text-align: center; margin-bottom: 48px; animation: fadeDown 0.6s ease both; }
+.logo { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -1px; line-height: 1; }
+.logo span { color: var(--accent); font-style: italic; }
+.tagline { margin-top: 8px; color: var(--text-muted); font-size: 0.82rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 16px; }
+.card-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: block; }
+
+/* Search */
+.search-row { display: flex; gap: 10px; }
+.search-wrap { position: relative; flex: 1; }
+.search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+#search-input {
+  width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); font-family: 'Epilogue', sans-serif; font-size: 0.97rem;
+  padding: 13px 14px 13px 42px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+#search-input:focus { border-color: var(--accent-dim); box-shadow: 0 0 0 3px var(--accent-glow); }
+#search-input::placeholder { color: var(--text-muted); }
+
+.ac-drop {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: var(--surface2); border: 1px solid var(--border2); border-radius: var(--radius-sm);
+  max-height: 272px; overflow-y: auto; z-index: 200;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6); display: none;
+}
+.ac-drop.open { display: block; }
+.ac-drop::-webkit-scrollbar { width: 4px; }
+.ac-drop::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+.ac-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; cursor: pointer; border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+.ac-item:last-child { border-bottom: none; }
+.ac-item:hover, .ac-item.focused { background: var(--surface3); }
+.ac-name { font-size: 0.88rem; color: var(--text); }
+.ac-name em { color: var(--accent); font-style: normal; font-weight: 600; }
+.ac-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.ac-cat { font-size: 0.68rem; color: var(--text-muted); background: var(--surface3); padding: 2px 7px; border-radius: 20px; }
+.ac-kcal { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-dim); min-width: 58px; text-align: right; }
+.ac-no { padding: 14px 16px; color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+
+.gram-row { display: flex; gap: 8px; }
+#gram-input {
+  width: 88px; background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--text); font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem; padding: 13px 10px; outline: none; text-align: center; transition: border-color 0.2s, box-shadow 0.2s;
+}
+#gram-input:focus { border-color: var(--accent-dim); box-shadow: 0 0 0 3px var(--accent-glow); }
+.btn-add {
+  background: var(--accent); color: #111210; border: none; border-radius: var(--radius-sm);
+  font-family: 'Epilogue', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0 22px;
+  cursor: pointer; letter-spacing: 0.02em; transition: background 0.15s, transform 0.1s; white-space: nowrap;
+}
+.btn-add:hover { background: #d8f870; }
+.btn-add:active { transform: scale(0.97); }
+.btn-add:disabled { background: var(--surface3); color: var(--text-muted); cursor: not-allowed; }
+
+.preview-bar {
+  margin-top: 12px; padding: 11px 14px; background: var(--accent-glow);
+  border: 1px solid rgba(200,240,96,0.18); border-radius: var(--radius-sm);
+  display: none; align-items: center; justify-content: space-between; gap: 10px;
+}
+.preview-bar.show { display: flex; }
+.preview-fname { font-size: 0.88rem; color: var(--text); }
+.preview-fcat { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+.preview-fcal { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--accent); flex-shrink: 0; }
+
+/* Goal */
+.goal-card { animation: fadeUp 0.5s ease 0.15s both; }
+.goal-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.goal-row label { font-size: 0.8rem; color: var(--text-dim); white-space: nowrap; }
+#goal-input {
+  width: 90px; background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--text); font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem; padding: 7px 10px; outline: none; text-align: center; transition: border-color 0.2s;
+}
+#goal-input:focus { border-color: var(--accent-dim); }
+.goal-unit { font-size: 0.78rem; color: var(--text-muted); }
+.goal-meta { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.goal-pct { font-size: 0.75rem; color: var(--text-muted); }
+.goal-rem { font-size: 0.75rem; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
+.progress-track { height: 7px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width 0.4s cubic-bezier(0.34,1.56,0.64,1), background 0.3s; min-width: 0; }
+.progress-fill.warn { background: var(--orange); }
+.progress-fill.over { background: var(--red); }
+
+/* Log */
+.log-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.log-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+.btn-clear { background: none; border: 1px solid var(--border2); border-radius: 20px; color: var(--text-muted); font-family: 'Epilogue', sans-serif; font-size: 0.72rem; padding: 4px 12px; cursor: pointer; transition: all 0.2s; }
+.btn-clear:hover { border-color: var(--red); color: var(--red); }
+
+.meal-list { display: flex; flex-direction: column; gap: 6px; }
+.empty-state { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 30px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+.empty-icon { font-size: 1.8rem; margin-bottom: 8px; opacity: 0.4; }
+
+.meal-item {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 13px 16px; display: grid; grid-template-columns: 1fr auto auto auto;
+  align-items: center; gap: 14px; animation: itemIn 0.22s ease both; transition: border-color 0.2s;
+}
+.meal-item:hover { border-color: var(--border2); }
+@keyframes itemIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.item-name { font-size: 0.88rem; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.item-cat { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+.item-g { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); }
+.item-cal { font-family: 'JetBrains Mono', monospace; font-size: 0.92rem; font-weight: 500; color: var(--accent); min-width: 68px; text-align: right; }
+.btn-rm { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; padding: 4px 6px; border-radius: 4px; transition: color 0.15s; }
+.btn-rm:hover { color: var(--red); }
+
+/* Total */
+.total-bar {
+  background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius);
+  padding: 20px 24px; margin-top: 14px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  animation: fadeUp 0.5s ease 0.25s both;
+}
+.total-left { display: flex; flex-direction: column; gap: 4px; }
+.total-lbl { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.total-cnt { font-size: 0.8rem; color: var(--text-dim); }
+.total-right { display: flex; align-items: baseline; gap: 6px; }
+.total-num { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 700; color: var(--accent); line-height: 1; transition: color 0.3s; }
+.total-unit { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; }
+
+/* Dot indicators */
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; flex-shrink: 0; }
+.dot-low { background: #5fb870; } .dot-med { background: var(--orange); } .dot-high { background: var(--red); }
+
+/* Animations */
+@keyframes fadeDown { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:none; } }
+@keyframes fadeUp   { from { opacity:0; transform:translateY(14px); }  to { opacity:1; transform:none; } }
+@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(200,240,96,0.45)} 70%{box-shadow:0 0 0 12px rgba(200,240,96,0)} 100%{box-shadow:0 0 0 0 rgba(200,240,96,0)} }
+.pulse { animation: pulse 0.5s ease; }
+
+.search-card { animation: fadeUp 0.5s ease 0.05s both; }
+
+@media(max-width:580px) {
+  .search-row { flex-direction: column; }
+  .gram-row { width: 100%; }
+  #gram-input { flex: 1; }
+  .btn-add { flex: 1; }
+  .item-g { display: none; }
+  .meal-item { grid-template-columns: 1fr auto auto; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <div class="logo">Cal<span>Count</span></div>
+    <div class="tagline">826 foods · kcal per 100g · type to search</div>
+  </header>
+
+  <!-- Search card -->
+  <div class="card search-card">
+    <span class="card-label">Add food</span>
+    <div class="search-row">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input id="search-input" type="text" placeholder="Search — chicken breast, salmon, pizza…" autocomplete="off" spellcheck="false" />
+        <div class="ac-drop" id="ac-drop"></div>
+      </div>
+      <div class="gram-row">
+        <input id="gram-input" type="number" value="100" min="1" max="9999" title="Grams" />
+        <button class="btn-add" id="btn-add" disabled>＋ Add</button>
+      </div>
+    </div>
+    <div class="preview-bar" id="preview-bar">
+      <div>
+        <div class="preview-fname" id="p-name">—</div>
+        <div class="preview-fcat" id="p-cat">—</div>
+      </div>
+      <div class="preview-fcal" id="p-cal">—</div>
+    </div>
+  </div>
+
+  <!-- Goal card -->
+  <div class="card goal-card">
+    <span class="card-label">Daily goal</span>
+    <div class="goal-row">
+      <label for="goal-input">Target:</label>
+      <input id="goal-input" type="number" value="2000" min="500" max="15000" />
+      <span class="goal-unit">kcal / day</span>
+    </div>
+    <div class="goal-meta">
+      <span class="goal-pct" id="g-pct">0% of goal</span>
+      <span class="goal-rem" id="g-rem">2000 kcal remaining</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+  </div>
+
+  <!-- Log -->
+  <div style="animation: fadeUp 0.5s ease 0.2s both;">
+    <div class="log-header">
+      <span class="log-title">Today's log</span>
+      <button class="btn-clear" id="btn-clear">Clear all</button>
+    </div>
+    <div class="meal-list" id="meal-list">
+      <div class="empty-state"><div class="empty-icon">🥗</div>Search a food above and add it to start tracking</div>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="total-bar">
+    <div class="total-left">
+      <div class="total-lbl">Total calories</div>
+      <div class="total-cnt" id="t-cnt">0 items</div>
+    </div>
+    <div class="total-right">
+      <div class="total-num" id="t-num">0</div>
+      <div class="total-unit">kcal</div>
+    </div>
+  </div>
+
+</div>
+<script>
+// ── EMBEDDED DATA ─────────────────────────────────────────────────────────────
+const RAW={"foods":{"meat":{"pork":[{"name":"Pork, ground (minced)","calories":263},{"name":"Pork belly","calories":518},{"name":"Pork shoulder","calories":186},{"name":"Pork neck / collar","calories":225},{"name":"Pork loin","calories":182},{"name":"Pork tenderloin","calories":143},{"name":"Pork cutlet (loin chop)","calories":194},{"name":"Pork ribs (spare ribs)","calories":297},{"name":"Pork back ribs","calories":278},{"name":"Pork leg (ham, raw)","calories":157},{"name":"Pork ear","calories":166},{"name":"Pork trotter (foot)","calories":222},{"name":"Pork liver","calories":134},{"name":"Pork kidney","calories":100},{"name":"Pork heart","calories":119},{"name":"Pork brain","calories":108},{"name":"Pork tongue","calories":181},{"name":"Pork skin (rind, raw)","calories":376},{"name":"Pork jowl","calories":512},{"name":"Pork back fat (lard, raw)","calories":812}],"chicken":[{"name":"Chicken breast, skinless","calories":110},{"name":"Chicken breast, with skin","calories":172},{"name":"Chicken thigh, skinless","calories":150},{"name":"Chicken thigh, with skin","calories":209},{"name":"Chicken drumstick, skinless","calories":143},{"name":"Chicken drumstick, with skin","calories":185},{"name":"Chicken wing","calories":203},{"name":"Chicken whole (average)","calories":215},{"name":"Chicken liver","calories":119},{"name":"Chicken gizzard","calories":94},{"name":"Chicken heart","calories":153},{"name":"Chicken neck","calories":188},{"name":"Chicken feet","calories":215},{"name":"Chicken back","calories":198},{"name":"Ground chicken","calories":143}],"beef":[{"name":"Beef, ground (minced) 80/20","calories":254},{"name":"Beef, ground (minced) 90/10","calories":176},{"name":"Beef sirloin steak","calories":207},{"name":"Beef ribeye steak","calories":291},{"name":"Beef tenderloin (fillet)","calories":219},{"name":"Beef brisket","calories":283},{"name":"Beef chuck","calories":235},{"name":"Beef short ribs","calories":310},{"name":"Beef flank steak","calories":192},{"name":"Beef skirt steak","calories":211},{"name":"Beef T-bone steak","calories":247},{"name":"Beef liver","calories":135},{"name":"Beef kidney","calories":97},{"name":"Beef heart","calories":112},{"name":"Beef tongue","calories":224},{"name":"Beef tripe","calories":85},{"name":"Beef oxtail","calories":262},{"name":"Beef bone marrow","calories":786},{"name":"Veal cutlet","calories":152},{"name":"Veal liver","calories":140}],"lamb":[{"name":"Lamb leg","calories":206},{"name":"Lamb shoulder","calories":234},{"name":"Lamb chop (loin)","calories":283},{"name":"Lamb rack (rib)","calories":294},{"name":"Lamb shank","calories":191},{"name":"Lamb liver","calories":139},{"name":"Lamb kidney","calories":97},{"name":"Lamb heart","calories":119},{"name":"Ground lamb","calories":258}],"turkey":[{"name":"Turkey breast, skinless","calories":104},{"name":"Turkey breast, with skin","calories":153},{"name":"Turkey thigh, skinless","calories":162},{"name":"Turkey leg","calories":144},{"name":"Turkey ground","calories":149},{"name":"Turkey liver","calories":132}],"duck":[{"name":"Duck breast, skinless","calories":140},{"name":"Duck breast, with skin","calories":337},{"name":"Duck whole (average)","calories":404},{"name":"Duck leg","calories":259},{"name":"Duck liver","calories":136}],"game_and_other":[{"name":"Venison (deer)","calories":158},{"name":"Rabbit","calories":136},{"name":"Goat","calories":109},{"name":"Bison / Buffalo","calories":146},{"name":"Wild boar","calories":160},{"name":"Quail","calories":192},{"name":"Goose","calories":371},{"name":"Horse","calories":133},{"name":"Frog legs","calories":73}]},"fish_and_seafood":{"fish":[{"name":"Salmon, Atlantic","calories":208},{"name":"Salmon, smoked","calories":117},{"name":"Tuna, yellowfin","calories":109},{"name":"Tuna, bluefin","calories":144},{"name":"Tuna, canned in water","calories":86},{"name":"Tuna, canned in oil","calories":198},{"name":"Cod","calories":82},{"name":"Haddock","calories":87},{"name":"Pollock","calories":92},{"name":"Tilapia","calories":96},{"name":"Trout, rainbow","calories":141},{"name":"Mackerel","calories":205},{"name":"Sardines, fresh","calories":208},{"name":"Sardines, canned in oil","calories":208},{"name":"Herring","calories":158},{"name":"Anchovy, fresh","calories":131},{"name":"Sea bass","calories":97},{"name":"Halibut","calories":111},{"name":"Sole / Flounder","calories":86},{"name":"Catfish","calories":95},{"name":"Carp","calories":127},{"name":"Pike","calories":88},{"name":"Perch","calories":91},{"name":"Swordfish","calories":121},{"name":"Mahi-mahi","calories":109},{"name":"Red snapper","calories":100},{"name":"Eel","calories":184},{"name":"Monkfish","calories":76},{"name":"Pangasius (basa)","calories":83},{"name":"Sprat","calories":125}],"seafood":[{"name":"Shrimp / Prawns","calories":85},{"name":"Lobster","calories":89},{"name":"Crab (blue)","calories":87},{"name":"King crab","calories":84},{"name":"Scallops","calories":88},{"name":"Oysters","calories":68},{"name":"Mussels","calories":86},{"name":"Clams","calories":74},{"name":"Squid (calamari)","calories":92},{"name":"Octopus","calories":82},{"name":"Cuttlefish","calories":79},{"name":"Sea urchin (uni)","calories":119},{"name":"Cockles","calories":53},{"name":"Abalone","calories":105}],"roe_and_caviar":[{"name":"Salmon roe","calories":250},{"name":"Caviar (sturgeon)","calories":264},{"name":"Cod roe","calories":110},{"name":"Tobiko (flying fish roe)","calories":160}]},"eggs_and_dairy":{"eggs":[{"name":"Chicken egg, whole (raw)","calories":143},{"name":"Chicken egg, yolk only","calories":322},{"name":"Chicken egg, white only","calories":52},{"name":"Duck egg","calories":185},{"name":"Quail egg","calories":158},{"name":"Goose egg","calories":185},{"name":"Turkey egg","calories":171}],"milk":[{"name":"Cow milk, whole (3.5%)","calories":61},{"name":"Cow milk, semi-skimmed (1.5%)","calories":46},{"name":"Cow milk, skimmed (0.1%)","calories":33},{"name":"Goat milk","calories":69},{"name":"Sheep milk","calories":108},{"name":"Buffalo milk","calories":97},{"name":"Almond milk (unsweetened)","calories":15},{"name":"Oat milk (unsweetened)","calories":47},{"name":"Soy milk (unsweetened)","calories":33},{"name":"Coconut milk (full fat)","calories":230},{"name":"Rice milk","calories":47}],"cheese":[{"name":"Cheddar","calories":403},{"name":"Parmesan","calories":431},{"name":"Mozzarella, full fat","calories":280},{"name":"Mozzarella, low moisture","calories":318},{"name":"Feta","calories":264},{"name":"Brie","calories":334},{"name":"Camembert","calories":300},{"name":"Gouda","calories":356},{"name":"Edam","calories":357},{"name":"Emmental","calories":380},{"name":"Gruyère","calories":413},{"name":"Ricotta","calories":174},{"name":"Cottage cheese (full fat)","calories":98},{"name":"Cottage cheese (low fat)","calories":72},{"name":"Cream cheese","calories":342},{"name":"Mascarpone","calories":429},{"name":"Blue cheese (Roquefort)","calories":369},{"name":"Halloumi","calories":321},{"name":"Pecorino Romano","calories":387},{"name":"Manchego","calories":395},{"name":"Swiss cheese","calories":380},{"name":"Provolone","calories":352},{"name":"Burrata","calories":300},{"name":"Paneer","calories":321},{"name":"Quark (low fat)","calories":67},{"name":"Telemea (Romanian cheese)","calories":270}],"yogurt_and_cream":[{"name":"Greek yogurt (full fat)","calories":97},{"name":"Greek yogurt (0%)","calories":59},{"name":"Plain yogurt (whole milk)","calories":61},{"name":"Sour cream","calories":193},{"name":"Heavy cream (whipping)","calories":340},{"name":"Light cream (coffee cream)","calories":195},{"name":"Crème fraîche","calories":292},{"name":"Kefir (whole milk)","calories":61},{"name":"Buttermilk","calories":40},{"name":"Clotted cream","calories":586}],"butter_and_fats":[{"name":"Butter, unsalted","calories":717},{"name":"Butter, salted","calories":714},{"name":"Ghee (clarified butter)","calories":900},{"name":"Lard (pork fat, rendered)","calories":902},{"name":"Tallow (beef fat, rendered)","calories":902},{"name":"Duck fat","calories":900},{"name":"Margarine","calories":720}]},"vegetables":{"leafy_greens":[{"name":"Spinach","calories":23},{"name":"Kale","calories":49},{"name":"Arugula (rocket)","calories":25},{"name":"Romaine lettuce","calories":17},{"name":"Iceberg lettuce","calories":14},{"name":"Swiss chard","calories":19},{"name":"Collard greens","calories":32},{"name":"Bok choy","calories":13},{"name":"Cabbage, green","calories":25},{"name":"Cabbage, red","calories":31},{"name":"Cabbage, savoy","calories":27},{"name":"Brussels sprouts","calories":43},{"name":"Endive","calories":17},{"name":"Watercress","calories":11},{"name":"Radicchio","calories":23},{"name":"Microgreens (average)","calories":30}],"root_vegetables":[{"name":"Carrot","calories":41},{"name":"Potato, white","calories":77},{"name":"Potato, sweet","calories":86},{"name":"Beetroot","calories":43},{"name":"Parsnip","calories":75},{"name":"Turnip","calories":28},{"name":"Radish","calories":16},{"name":"Daikon radish","calories":18},{"name":"Celeriac","calories":42},{"name":"Ginger root","calories":80},{"name":"Turmeric root","calories":354},{"name":"Horseradish root","calories":48},{"name":"Jerusalem artichoke","calories":73},{"name":"Yam","calories":118},{"name":"Cassava (yuca)","calories":160},{"name":"Taro root","calories":112}],"brassicas":[{"name":"Broccoli","calories":34},{"name":"Cauliflower","calories":25},{"name":"Kohlrabi","calories":27},{"name":"Romanesco","calories":30}],"alliums":[{"name":"Onion, yellow","calories":40},{"name":"Onion, red","calories":42},{"name":"Onion, white","calories":42},{"name":"Shallot","calories":72},{"name":"Garlic","calories":149},{"name":"Leek","calories":61},{"name":"Spring onion (scallion)","calories":32},{"name":"Chive","calories":30}],"nightshades":[{"name":"Tomato, red","calories":18},{"name":"Tomato, cherry","calories":18},{"name":"Bell pepper, red","calories":31},{"name":"Bell pepper, green","calories":20},{"name":"Bell pepper, yellow","calories":27},{"name":"Chili pepper, red","calories":40},{"name":"Jalapeño","calories":29},{"name":"Eggplant (aubergine)","calories":25},{"name":"Tomatillo","calories":32}],"squash_and_gourds":[{"name":"Zucchini (courgette)","calories":17},{"name":"Cucumber","calories":15},{"name":"Pumpkin","calories":26},{"name":"Butternut squash","calories":45},{"name":"Acorn squash","calories":40},{"name":"Spaghetti squash","calories":31},{"name":"Kabocha squash","calories":34}],"stalks_and_stems":[{"name":"Celery","calories":16},{"name":"Asparagus","calories":20},{"name":"Fennel bulb","calories":31},{"name":"Artichoke (globe)","calories":47},{"name":"Rhubarb","calories":21},{"name":"Bamboo shoots","calories":27}],"mushrooms":[{"name":"Button mushroom (white)","calories":22},{"name":"Portobello mushroom","calories":26},{"name":"Shiitake mushroom","calories":34},{"name":"Oyster mushroom","calories":33},{"name":"Chanterelle","calories":38},{"name":"Porcini (cep)","calories":25},{"name":"Enoki mushroom","calories":37},{"name":"King oyster mushroom","calories":35},{"name":"Morel mushroom","calories":31},{"name":"Truffle, black","calories":92}]},"fruits":{"citrus":[{"name":"Orange","calories":47},{"name":"Lemon","calories":29},{"name":"Lime","calories":30},{"name":"Grapefruit","calories":42},{"name":"Mandarin / Clementine","calories":53},{"name":"Pomelo","calories":38},{"name":"Blood orange","calories":50},{"name":"Yuzu","calories":53}],"berries":[{"name":"Strawberry","calories":32},{"name":"Blueberry","calories":57},{"name":"Raspberry","calories":52},{"name":"Blackberry","calories":43},{"name":"Cranberry","calories":46},{"name":"Gooseberry","calories":44},{"name":"Currant, black","calories":63},{"name":"Currant, red","calories":56},{"name":"Elderberry","calories":73},{"name":"Mulberry","calories":43},{"name":"Boysenberry","calories":50},{"name":"Goji berry","calories":349},{"name":"Açaí berry (raw pulp)","calories":70}],"stone_fruits":[{"name":"Apple","calories":52},{"name":"Pear","calories":57},{"name":"Peach","calories":39},{"name":"Nectarine","calories":44},{"name":"Apricot","calories":48},{"name":"Plum","calories":46},{"name":"Cherry, sweet","calories":63},{"name":"Cherry, sour","calories":50}],"tropical":[{"name":"Banana","calories":89},{"name":"Mango","calories":60},{"name":"Pineapple","calories":50},{"name":"Papaya","calories":43},{"name":"Guava","calories":68},{"name":"Passion fruit","calories":97},{"name":"Kiwi","calories":61},{"name":"Lychee","calories":66},{"name":"Jackfruit","calories":95},{"name":"Dragon fruit (pitaya)","calories":60},{"name":"Durian","calories":147},{"name":"Rambutan","calories":82},{"name":"Starfruit (carambola)","calories":31},{"name":"Longan","calories":60}],"melons":[{"name":"Watermelon","calories":30},{"name":"Cantaloupe (muskmelon)","calories":34},{"name":"Honeydew melon","calories":36}],"dried_fruits":[{"name":"Raisins","calories":299},{"name":"Dates, medjool","calories":277},{"name":"Prunes (dried plum)","calories":240},{"name":"Apricot, dried","calories":241},{"name":"Fig, dried","calories":249},{"name":"Cranberry, dried","calories":308},{"name":"Mango, dried","calories":314}],"other_fruits":[{"name":"Grape, green","calories":69},{"name":"Grape, red","calories":70},{"name":"Fig, fresh","calories":74},{"name":"Pomegranate","calories":83},{"name":"Persimmon","calories":70},{"name":"Quince","calories":57}]},"grains_and_cereals":{"rice":[{"name":"Rice, white (raw)","calories":365},{"name":"Rice, brown (raw)","calories":370},{"name":"Rice, basmati (raw)","calories":356},{"name":"Rice, jasmine (raw)","calories":362},{"name":"Rice, wild (raw)","calories":357},{"name":"Rice, arborio (raw)","calories":350}],"wheat_and_flour":[{"name":"Wheat flour, all-purpose","calories":364},{"name":"Wheat flour, whole wheat","calories":340},{"name":"Wheat flour, bread flour","calories":361},{"name":"Wheat, whole grain (raw)","calories":339},{"name":"Semolina","calories":360},{"name":"Bulgur wheat (raw)","calories":342},{"name":"Couscous (raw)","calories":376},{"name":"Farro (raw)","calories":340},{"name":"Spelt (raw)","calories":338},{"name":"Kamut (raw)","calories":337}],"other_grains":[{"name":"Oats, rolled (raw)","calories":389},{"name":"Oat bran","calories":246},{"name":"Barley, pearled (raw)","calories":352},{"name":"Rye (raw)","calories":338},{"name":"Corn / Maize (raw)","calories":365},{"name":"Cornmeal / Polenta (raw)","calories":362},{"name":"Millet (raw)","calories":378},{"name":"Sorghum (raw)","calories":329},{"name":"Buckwheat (raw)","calories":343},{"name":"Quinoa (raw)","calories":368},{"name":"Amaranth (raw)","calories":371},{"name":"Teff (raw)","calories":367}],"pasta":[{"name":"Pasta, white (raw, dry)","calories":371},{"name":"Pasta, whole wheat (raw, dry)","calories":348},{"name":"Egg noodles (raw, dry)","calories":384},{"name":"Rice noodles (raw, dry)","calories":364},{"name":"Glass noodles / mung bean (dry)","calories":351}],"bread_and_baked":[{"name":"Bread, white","calories":265},{"name":"Bread, whole wheat","calories":247},{"name":"Bread, rye","calories":259},{"name":"Bread, sourdough","calories":274},{"name":"Baguette","calories":276},{"name":"Pita bread","calories":275},{"name":"Tortilla, flour","calories":306},{"name":"Tortilla, corn","calories":237},{"name":"Breadcrumbs, plain","calories":395},{"name":"Cracker, water","calories":402}]},"legumes":[{"name":"Lentils, green (raw)","calories":352},{"name":"Lentils, red (raw)","calories":358},{"name":"Chickpeas (raw)","calories":378},{"name":"Black beans (raw)","calories":341},{"name":"Kidney beans, red (raw)","calories":333},{"name":"White beans / cannellini (raw)","calories":337},{"name":"Pinto beans (raw)","calories":347},{"name":"Soybeans (raw)","calories":446},{"name":"Edamame (raw)","calories":122},{"name":"Green peas (raw)","calories":81},{"name":"Split peas (raw)","calories":341},{"name":"Mung beans (raw)","calories":347},{"name":"Adzuki beans (raw)","calories":329},{"name":"Fava beans / broad beans (raw)","calories":341},{"name":"Black-eyed peas (raw)","calories":336},{"name":"Lima beans (raw)","calories":338}],"nuts_and_seeds":{"nuts":[{"name":"Almonds","calories":579},{"name":"Walnuts","calories":654},{"name":"Cashews","calories":553},{"name":"Pistachios","calories":562},{"name":"Macadamia nuts","calories":718},{"name":"Brazil nuts","calories":659},{"name":"Hazelnuts","calories":628},{"name":"Pecans","calories":691},{"name":"Pine nuts","calories":673},{"name":"Peanuts (raw)","calories":567},{"name":"Chestnuts","calories":245},{"name":"Coconut meat (raw)","calories":354},{"name":"Coconut, desiccated","calories":660}],"seeds":[{"name":"Sunflower seeds","calories":584},{"name":"Pumpkin seeds","calories":559},{"name":"Sesame seeds","calories":573},{"name":"Flaxseed (linseed)","calories":534},{"name":"Chia seeds","calories":486},{"name":"Hemp seeds","calories":553},{"name":"Poppy seeds","calories":525},{"name":"Caraway seeds","calories":333},{"name":"Cumin seeds","calories":375},{"name":"Fennel seeds","calories":345},{"name":"Coriander seeds","calories":298}],"nut_and_seed_butters":[{"name":"Peanut butter","calories":588},{"name":"Almond butter","calories":614},{"name":"Tahini (sesame paste)","calories":595},{"name":"Cashew butter","calories":587},{"name":"Sunflower seed butter","calories":617}]},"oils_and_fats":[{"name":"Olive oil, extra virgin","calories":884},{"name":"Sunflower oil","calories":884},{"name":"Canola (rapeseed) oil","calories":884},{"name":"Coconut oil","calories":892},{"name":"Avocado oil","calories":884},{"name":"Vegetable oil (generic)","calories":884},{"name":"Corn oil","calories":884},{"name":"Sesame oil","calories":884},{"name":"Flaxseed oil","calories":884},{"name":"Walnut oil","calories":884},{"name":"Pumpkin seed oil","calories":884},{"name":"MCT oil","calories":760}],"soy_products":[{"name":"Tofu, firm","calories":76},{"name":"Tofu, silken","calories":55},{"name":"Tempeh","calories":192},{"name":"Miso paste","calories":199},{"name":"Natto","calories":211},{"name":"Soy sauce","calories":53},{"name":"Tamari","calories":60},{"name":"Soy protein isolate","calories":338}],"herbs_and_spices":[{"name":"Basil (fresh)","calories":22},{"name":"Parsley (fresh)","calories":36},{"name":"Cilantro / Coriander (fresh)","calories":23},{"name":"Mint (fresh)","calories":70},{"name":"Dill (fresh)","calories":43},{"name":"Rosemary (fresh)","calories":131},{"name":"Thyme (fresh)","calories":101},{"name":"Oregano (dried)","calories":265},{"name":"Paprika (dried)","calories":282},{"name":"Cayenne pepper (dried)","calories":318},{"name":"Black pepper (dried)","calories":251},{"name":"Cinnamon (ground)","calories":247},{"name":"Nutmeg (ground)","calories":525},{"name":"Cloves (ground)","calories":274},{"name":"Cardamom (ground)","calories":311},{"name":"Turmeric (ground)","calories":354},{"name":"Ginger (ground)","calories":335},{"name":"Garlic powder","calories":331},{"name":"Onion powder","calories":341},{"name":"Chili powder","calories":282},{"name":"Curry powder","calories":325},{"name":"Cumin (ground)","calories":375},{"name":"Fenugreek (ground)","calories":323},{"name":"Saffron","calories":310},{"name":"Star anise","calories":337},{"name":"Bay leaf (dried)","calories":313},{"name":"Sage (dried)","calories":315},{"name":"Marjoram (dried)","calories":271},{"name":"Sumac","calories":279},{"name":"Za'atar blend","calories":296}],"condiments_and_sauces":[{"name":"Ketchup","calories":101},{"name":"Mustard, yellow","calories":60},{"name":"Mustard, Dijon","calories":66},{"name":"Mayonnaise, full fat","calories":680},{"name":"Mayonnaise, light","calories":310},{"name":"Worcestershire sauce","calories":78},{"name":"Tabasco","calories":12},{"name":"Sriracha","calories":93},{"name":"Oyster sauce","calories":51},{"name":"Fish sauce","calories":35},{"name":"Hoisin sauce","calories":220},{"name":"Teriyaki sauce","calories":89},{"name":"Balsamic vinegar","calories":88},{"name":"Apple cider vinegar","calories":21},{"name":"White wine vinegar","calories":18},{"name":"Honey","calories":304},{"name":"Maple syrup","calories":260},{"name":"Tomato paste","calories":82},{"name":"Tomato purée","calories":38},{"name":"Hummus","calories":166},{"name":"Tzatziki","calories":66},{"name":"Pesto (basil)","calories":406},{"name":"Ranch dressing","calories":140}],"sweeteners_and_sugars":[{"name":"Sugar, white granulated","calories":387},{"name":"Sugar, brown","calories":380},{"name":"Sugar, powdered (icing)","calories":389},{"name":"Sugar, raw (turbinado)","calories":380},{"name":"Coconut sugar","calories":375},{"name":"Stevia (dried leaf)","calories":0},{"name":"Erythritol","calories":20},{"name":"Xylitol","calories":240},{"name":"Agave syrup","calories":310},{"name":"Molasses","calories":290},{"name":"Corn syrup","calories":283}],"beverages":{"non_alcoholic":[{"name":"Water","calories":0},{"name":"Coffee, black (brewed)","calories":2},{"name":"Espresso","calories":9},{"name":"Tea, black (brewed)","calories":1},{"name":"Tea, green (brewed)","calories":1},{"name":"Orange juice (fresh)","calories":45},{"name":"Apple juice","calories":46},{"name":"Coconut water","calories":19}],"alcoholic":[{"name":"Beer, lager (5%)","calories":43},{"name":"Beer, dark/stout (5%)","calories":45},{"name":"Wine, red (13%)","calories":85},{"name":"Wine, white dry (12%)","calories":77},{"name":"Wine, rosé (12%)","calories":80},{"name":"Champagne / Prosecco","calories":76},{"name":"Vodka (40%)","calories":231},{"name":"Whiskey (40%)","calories":250},{"name":"Rum (40%)","calories":231},{"name":"Gin (40%)","calories":263},{"name":"Tequila (40%)","calories":231}]},"cooked_foods":{"burgers_and_sandwiches":[{"name":"Cheeseburger (beef patty, bun, cheese, ketchup)","calories":295},{"name":"Double cheeseburger","calories":330},{"name":"Hamburger (plain, bun + patty)","calories":265},{"name":"Chicken burger (breaded)","calories":270},{"name":"Veggie burger","calories":200},{"name":"BLT sandwich","calories":242},{"name":"Club sandwich","calories":230},{"name":"Grilled cheese sandwich","calories":290},{"name":"Pulled pork sandwich","calories":260},{"name":"Philly cheesesteak","calories":305},{"name":"Egg & bacon breakfast sandwich","calories":280},{"name":"Hot dog (bun + sausage)","calories":290},{"name":"Kebab wrap (doner, pitta, salad)","calories":230}],"pizza":[{"name":"Pizza Margherita (thin crust)","calories":220},{"name":"Pizza Margherita (thick crust)","calories":266},{"name":"Pizza Pepperoni","calories":298},{"name":"Pizza Quattro Formaggi","calories":315},{"name":"Pizza Hawaii (ham & pineapple)","calories":245},{"name":"Pizza Diavola (spicy salami)","calories":290},{"name":"Pizza BBQ Chicken","calories":265},{"name":"Pizza Calzone","calories":280},{"name":"Pizza, frozen (baked)","calories":253},{"name":"Neapolitan pizza (plain)","calories":210},{"name":"Mario Mushroom Pizza (wrap, mozzarella, tomato sauce)","calories":225}],"fries_and_sides":[{"name":"French fries (deep fried)","calories":312},{"name":"French fries (oven baked)","calories":180},{"name":"Sweet potato fries (fried)","calories":260},{"name":"Waffle fries","calories":320},{"name":"Potato wedges (oven)","calories":195},{"name":"Onion rings (battered, fried)","calories":380},{"name":"Mozzarella sticks (fried)","calories":335},{"name":"Nachos with cheese","calories":380},{"name":"Coleslaw (creamy)","calories":152},{"name":"Mac and cheese","calories":170},{"name":"Corn on the cob (boiled)","calories":96}],"potatoes_cooked":[{"name":"Boiled potato (plain)","calories":87},{"name":"Mashed potato (with butter & milk)","calories":113},{"name":"Baked potato (plain)","calories":93},{"name":"Loaded baked potato (sour cream, cheese, bacon)","calories":190},{"name":"Roasted potatoes (with oil)","calories":149},{"name":"Hash browns","calories":265},{"name":"Potato salad (mayo-based)","calories":143},{"name":"Gnocchi (plain, cooked)","calories":130},{"name":"Potato gratin (dauphinoise)","calories":175}],"rice_cooked":[{"name":"White rice (steamed)","calories":130},{"name":"Brown rice (cooked)","calories":111},{"name":"Fried rice (egg & vegetables)","calories":163},{"name":"Fried rice (with chicken)","calories":185},{"name":"Risotto (plain parmesan)","calories":150},{"name":"Risotto (mushroom)","calories":143},{"name":"Pilaf (rice with butter & broth)","calories":140},{"name":"Sushi rice (seasoned)","calories":166},{"name":"Congee (rice porridge)","calories":65},{"name":"Paella (seafood)","calories":175},{"name":"Biryani (chicken)","calories":200}],"steaks_and_grilled_meats":[{"name":"Beef sirloin steak (grilled, medium)","calories":212},{"name":"Beef ribeye steak (grilled, medium)","calories":274},{"name":"Beef tenderloin (fillet, grilled)","calories":215},{"name":"Beef T-bone steak (grilled)","calories":247},{"name":"Beef flank steak (grilled)","calories":192},{"name":"New York strip steak (grilled)","calories":223},{"name":"Pork chop (grilled)","calories":210},{"name":"Pork tenderloin (roasted)","calories":166},{"name":"Pork ribs (BBQ, smoked)","calories":278},{"name":"Lamb chop (grilled)","calories":261},{"name":"Lamb rack (roasted)","calories":290},{"name":"Chicken breast (grilled)","calories":165},{"name":"Chicken thigh (grilled)","calories":190},{"name":"BBQ chicken drumstick","calories":185},{"name":"Rotisserie chicken (average)","calories":200},{"name":"Steak with fries (combo, avg)","calories":270},{"name":"Steak with mashed potato (combo, avg)","calories":205},{"name":"Steak with rice (combo, avg)","calories":195}],"pasta_dishes":[{"name":"Spaghetti Bolognese","calories":163},{"name":"Spaghetti Carbonara","calories":230},{"name":"Pasta Alfredo","calories":210},{"name":"Penne Arrabbiata","calories":150},{"name":"Lasagne (meat)","calories":168},{"name":"Lasagne (vegetable)","calories":135},{"name":"Pasta Primavera","calories":140},{"name":"Pasta with pesto","calories":220},{"name":"Cacio e Pepe","calories":250},{"name":"Pasta e Fagioli","calories":125},{"name":"Gnocchi with tomato sauce","calories":145},{"name":"Mac and cheese (baked)","calories":183},{"name":"Pasta salad (cold, with vegetables)","calories":130}],"soups":[{"name":"Chicken noodle soup","calories":62},{"name":"Chicken broth (plain)","calories":15},{"name":"Beef broth (plain)","calories":17},{"name":"Tomato soup (cream of)","calories":85},{"name":"Minestrone","calories":70},{"name":"French onion soup","calories":65},{"name":"Clam chowder (New England)","calories":100},{"name":"Clam chowder (Manhattan)","calories":55},{"name":"Pea and ham soup","calories":80},{"name":"Lentil soup","calories":90},{"name":"Bean soup","calories":85},{"name":"Gazpacho","calories":45},{"name":"Borscht (beet soup)","calories":50},{"name":"Pho (beef broth with noodles)","calories":65},{"name":"Ramen (pork broth, noodles, egg)","calories":95},{"name":"Tom Yum soup","calories":55},{"name":"Miso soup (with tofu)","calories":35},{"name":"Mushroom cream soup","calories":95},{"name":"Pumpkin soup (cream of)","calories":70},{"name":"Potato soup (cream of)","calories":80},{"name":"Goulash soup","calories":78},{"name":"Ciorbă de burtă (Romanian tripe soup)","calories":65},{"name":"Ciorbă de legume (Romanian veg soup)","calories":40}],"sushi_and_japanese":[{"name":"Sushi roll, salmon (maki)","calories":170},{"name":"Sushi roll, tuna (maki)","calories":155},{"name":"Sushi roll, cucumber (kappa maki)","calories":78},{"name":"California roll","calories":159},{"name":"Dragon roll","calories":200},{"name":"Spicy tuna roll","calories":175},{"name":"Nigiri, salmon","calories":140},{"name":"Nigiri, tuna","calories":130},{"name":"Sashimi, salmon","calories":127},{"name":"Sashimi, tuna","calories":108},{"name":"Gyoza (pan-fried pork dumplings)","calories":210},{"name":"Katsu curry (chicken)","calories":220},{"name":"Teriyaki chicken with rice","calories":185},{"name":"Tonkatsu (breaded pork cutlet)","calories":298}],"ribs_and_bbq":[{"name":"Pork spare ribs (BBQ, smoked)","calories":292},{"name":"Pork back ribs (BBQ)","calories":278},{"name":"Beef short ribs (braised)","calories":280},{"name":"Beef ribs (BBQ, smoked)","calories":295},{"name":"BBQ pulled pork","calories":215},{"name":"BBQ brisket (smoked)","calories":245},{"name":"Chicken wings (BBQ glazed)","calories":270},{"name":"Buffalo wings","calories":290}],"breakfast_dishes":[{"name":"Scrambled eggs (with butter)","calories":148},{"name":"Fried egg (in oil)","calories":196},{"name":"Omelette (plain)","calories":154},{"name":"Omelette (cheese)","calories":195},{"name":"Boiled egg (hard)","calories":155},{"name":"Eggs Benedict","calories":250},{"name":"Pancakes (plain, with butter)","calories":227},{"name":"Pancakes with maple syrup","calories":290},{"name":"Waffles (plain)","calories":291},{"name":"French toast","calories":229},{"name":"Oatmeal / Porridge (with water)","calories":71},{"name":"Granola (with milk)","calories":165},{"name":"Bacon (pan-fried, crispy)","calories":541},{"name":"Sausage, pork (pan-fried)","calories":376},{"name":"Full English breakfast (avg)","calories":218},{"name":"Avocado toast","calories":195}],"salads":[{"name":"Caesar salad (with croutons, dressing)","calories":150},{"name":"Greek salad","calories":95},{"name":"Caprese salad (tomato, mozzarella, basil)","calories":170},{"name":"Cobb salad","calories":175},{"name":"Tuna salad","calories":160},{"name":"Tabbouleh","calories":80}],"street_food_and_fast_food":[{"name":"Shawarma (chicken, wrap)","calories":220},{"name":"Falafel (fried)","calories":333},{"name":"Tacos (beef, corn tortilla)","calories":226},{"name":"Burrito (beef and rice)","calories":217},{"name":"Quesadilla (cheese)","calories":305},{"name":"Spring rolls (fried, pork)","calories":205},{"name":"Samosa (potato, fried)","calories":262},{"name":"Croissant (plain)","calories":406},{"name":"Bagel (plain)","calories":250},{"name":"Corn dog","calories":270},{"name":"Fish and chips","calories":253}],"stews_and_braises":[{"name":"Beef stew","calories":120},{"name":"Beef goulash","calories":130},{"name":"Chicken stew","calories":100},{"name":"Chili con carne","calories":150},{"name":"Coq au vin","calories":150},{"name":"Lamb tagine","calories":140},{"name":"Moussaka","calories":160},{"name":"Shepherd's pie","calories":118},{"name":"Stuffed peppers (beef & rice)","calories":130}]},"sweets_and_desserts":{"chocolate":[{"name":"Dark chocolate (70%+)","calories":598},{"name":"Dark chocolate (85%+)","calories":611},{"name":"Milk chocolate","calories":535},{"name":"White chocolate","calories":539},{"name":"Chocolate with nuts (average)","calories":560},{"name":"Nutella / hazelnut spread","calories":539},{"name":"Cocoa powder (unsweetened)","calories":228},{"name":"Chocolate truffle","calories":450},{"name":"Kit Kat (wafer chocolate bar)","calories":508},{"name":"Snickers bar","calories":488},{"name":"Twix bar","calories":498},{"name":"Mars bar","calories":449},{"name":"Bounty bar","calories":471},{"name":"Ferrero Rocher","calories":566}],"ice_cream_and_frozen":[{"name":"Ice cream, vanilla (full fat)","calories":207},{"name":"Ice cream, chocolate","calories":216},{"name":"Ice cream, strawberry","calories":192},{"name":"Ice cream, cookie dough","calories":256},{"name":"Gelato, vanilla","calories":170},{"name":"Gelato, chocolate","calories":185},{"name":"Sorbet, lemon","calories":127},{"name":"Sorbet, mango","calories":130},{"name":"Frozen yogurt (plain)","calories":127},{"name":"Soft serve (vanilla cone)","calories":193},{"name":"Magnum ice cream bar (classic)","calories":285},{"name":"Popsicle / Ice lolly (fruit)","calories":55},{"name":"Milkshake, chocolate (thick)","calories":112}],"cakes_and_pastries":[{"name":"Cheesecake (New York style)","calories":321},{"name":"Chocolate cake (with frosting)","calories":371},{"name":"Carrot cake (with cream cheese frosting)","calories":340},{"name":"Red velvet cake","calories":366},{"name":"Victoria sponge","calories":349},{"name":"Banana bread","calories":264},{"name":"Tiramisu","calories":283},{"name":"Profiterole / Cream puff","calories":286},{"name":"Éclair (chocolate)","calories":290},{"name":"Mille-feuille (Napoleon)","calories":305},{"name":"Croissant (butter, plain)","calories":406},{"name":"Pain au chocolat","calories":394},{"name":"Cinnamon roll","calories":379},{"name":"Baklava","calories":428},{"name":"Churros (fried, with sugar)","calories":328},{"name":"Donut (glazed)","calories":452},{"name":"Donut (filled, jam)","calories":420},{"name":"Muffin, blueberry","calories":377},{"name":"Brownie (chocolate fudge)","calories":415},{"name":"Crepe (plain)","calories":186},{"name":"Crepe (Nutella & banana)","calories":290},{"name":"Strudel (apple)","calories":233},{"name":"Pavlova (with cream & fruit)","calories":265},{"name":"Tart, lemon (lemon curd)","calories":325}],"cookies_and_biscuits":[{"name":"Chocolate chip cookie","calories":488},{"name":"Oatmeal raisin cookie","calories":420},{"name":"Shortbread","calories":498},{"name":"Oreo","calories":471},{"name":"Digestive biscuit","calories":475},{"name":"Macaroon (French macaron)","calories":400},{"name":"Peanut butter cookie","calories":480},{"name":"Gingerbread cookie","calories":430},{"name":"Stroopwafel","calories":459}],"puddings_and_custards":[{"name":"Crème brûlée","calories":238},{"name":"Panna cotta (plain)","calories":208},{"name":"Chocolate mousse","calories":240},{"name":"Rice pudding (milk-based)","calories":118},{"name":"Custard (pouring, vanilla)","calories":118},{"name":"Flan (caramel custard)","calories":160},{"name":"Trifle","calories":185}],"candies_and_sweets":[{"name":"Gummy bears","calories":330},{"name":"Jelly beans","calories":367},{"name":"Marshmallows","calories":318},{"name":"Caramel (soft)","calories":382},{"name":"Toffee","calories":420},{"name":"Fudge (chocolate)","calories":397},{"name":"Hard candy / boiled sweets","calories":394},{"name":"Marzipan","calories":392},{"name":"Turkish delight (plain)","calories":322},{"name":"Halva (sesame)","calories":469},{"name":"Licorice (soft)","calories":320}],"pies_and_crumbles":[{"name":"Apple pie (with pastry)","calories":237},{"name":"Pumpkin pie","calories":212},{"name":"Pecan pie","calories":456},{"name":"Key lime pie","calories":325},{"name":"Blueberry pie","calories":232},{"name":"Apple crumble (with custard)","calories":210}]}}};
+
+// ── CAT LABELS ─────────────────────────────────────────────────────────────────
+const CAT={meat:'Meat',fish_and_seafood:'Fish',eggs_and_dairy:'Dairy',vegetables:'Veg',fruits:'Fruit',grains_and_cereals:'Grains',legumes:'Legumes',nuts_and_seeds:'Nuts',oils_and_fats:'Oils',soy_products:'Soy',herbs_and_spices:'Herbs',condiments_and_sauces:'Condiments',sweeteners_and_sugars:'Sweeteners',beverages:'Drinks',cooked_foods:'Cooked',sweets_and_desserts:'Sweets'};
+
+// ── FLATTEN ────────────────────────────────────────────────────────────────────
+const FOODS=[];
+function flat(o,cat){
+  if(Array.isArray(o)){o.forEach(i=>{if(i.name&&i.calories!==undefined)FOODS.push({name:i.name,cal:i.calories,cat})});}
+  else if(o&&typeof o==='object'){Object.entries(o).forEach(([k,v])=>{if(k!=='note')flat(v,cat);});}
+}
+Object.entries(RAW.foods).forEach(([k,v])=>flat(v,CAT[k]||k));
+
+// ── STATE ──────────────────────────────────────────────────────────────────────
+let selected=null, log=[], focusIdx=-1, results=[];
+
+// ── REFS ───────────────────────────────────────────────────────────────────────
+const SI=document.getElementById('search-input');
+const GI=document.getElementById('gram-input');
+const AC=document.getElementById('ac-drop');
+const ADD=document.getElementById('btn-add');
+const ML=document.getElementById('meal-list');
+const TN=document.getElementById('t-num');
+const TC=document.getElementById('t-cnt');
+const PRG=document.getElementById('progress');
+const GOAL=document.getElementById('goal-input');
+const GPCT=document.getElementById('g-pct');
+const GREM=document.getElementById('g-rem');
+const CLR=document.getElementById('btn-clear');
+const PB=document.getElementById('preview-bar');
+const PN=document.getElementById('p-name');
+const PC=document.getElementById('p-cat');
+const PCAL=document.getElementById('p-cal');
+
+// ── SEARCH ─────────────────────────────────────────────────────────────────────
+function hl(text,q){
+  return text.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'),'<em>$1</em>');
+}
+
+SI.addEventListener('input',()=>{
+  const q=SI.value.trim().toLowerCase();
+  focusIdx=-1;
+  if(!q){closeAC();clearSel();return;}
+  results=FOODS.filter(f=>f.name.toLowerCase().includes(q)).slice(0,12);
+  if(!results.length){AC.innerHTML=`<div class="ac-no">No results for "${q}"</div>`;AC.classList.add('open');return;}
+  AC.innerHTML=results.map((f,i)=>`
+    <div class="ac-item" data-i="${i}">
+      <span class="ac-name">${hl(f.name,q)}</span>
+      <span class="ac-right"><span class="ac-cat">${f.cat}</span><span class="ac-kcal">${f.cal} kcal</span></span>
+    </div>`).join('');
+  AC.classList.add('open');
+  AC.querySelectorAll('.ac-item').forEach(el=>el.addEventListener('mousedown',e=>{e.preventDefault();pick(results[+el.dataset.i]);}));
+});
+
+SI.addEventListener('keydown',e=>{
+  const its=AC.querySelectorAll('.ac-item');
+  if(e.key==='ArrowDown'){e.preventDefault();focusIdx=Math.min(focusIdx+1,its.length-1);setFocus(its);}
+  else if(e.key==='ArrowUp'){e.preventDefault();focusIdx=Math.max(focusIdx-1,0);setFocus(its);}
+  else if(e.key==='Enter'){e.preventDefault();if(focusIdx>=0&&results[focusIdx])pick(results[focusIdx]);else if(selected)addItem();}
+  else if(e.key==='Escape')closeAC();
+});
+
+function setFocus(its){
+  its.forEach((el,i)=>el.classList.toggle('focused',i===focusIdx));
+  if(its[focusIdx])its[focusIdx].scrollIntoView({block:'nearest'});
+}
+
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))closeAC();});
+function closeAC(){AC.classList.remove('open');AC.innerHTML='';results=[];focusIdx=-1;}
+
+function pick(f){
+  selected=f;SI.value=f.name;closeAC();ADD.disabled=false;
+  PN.textContent=f.name;PC.textContent=f.cat;PB.classList.add('show');
+  updatePrev();
+}
+function clearSel(){selected=null;ADD.disabled=true;PB.classList.remove('show');}
+
+GI.addEventListener('input',updatePrev);
+function updatePrev(){
+  if(!selected)return;
+  const g=parseFloat(GI.value)||0;
+  PCAL.textContent=`${selected.cal} kcal/100g → ${Math.round(selected.cal*g/100)} kcal for ${g}g`;
+}
+
+// ── LOCALSTORAGE ───────────────────────────────────────────────────────────────
+const TODAY = new Date().toISOString().slice(0,10);
+const LS_LOG  = 'calcount_log_' + TODAY;
+const LS_GOAL = 'calcount_goal';
+
+function saveLog()  { try { localStorage.setItem(LS_LOG, JSON.stringify(log)); } catch(e){} }
+function saveGoal() { try { localStorage.setItem(LS_GOAL, GOAL.value); } catch(e){} }
+
+function loadState() {
+  const savedGoal = localStorage.getItem(LS_GOAL);
+  if (savedGoal) GOAL.value = savedGoal;
+  try {
+    const saved = localStorage.getItem(LS_LOG);
+    if (saved) log = JSON.parse(saved);
+  } catch(e) { log = []; }
+  // Clean up keys older than 7 days
+  try {
+    Object.keys(localStorage)
+      .filter(k => k.startsWith('calcount_log_') && k !== LS_LOG)
+      .sort().slice(0, -6)
+      .forEach(k => localStorage.removeItem(k));
+  } catch(e) {}
+}
+
+// ── ADD ────────────────────────────────────────────────────────────────────────
+ADD.addEventListener('click',addItem);
+function addItem(){
+  if(!selected)return;
+  const g=parseFloat(GI.value);
+  if(!g||g<=0){GI.focus();return;}
+  log.push({id:Date.now(),name:selected.name,cat:selected.cat,g,cal:Math.round(selected.cal*g/100)});
+  render();total();saveLog();
+  SI.value='';GI.value=100;clearSel();
+  TN.classList.remove('pulse');void TN.offsetWidth;TN.classList.add('pulse');
+}
+
+// ── RENDER ─────────────────────────────────────────────────────────────────────
+function dot(cal){
+  return cal<100?'<span class="dot dot-low"></span>':cal<300?'<span class="dot dot-med"></span>':'<span class="dot dot-high"></span>';
+}
+function render(){
+  if(!log.length){ML.innerHTML=`<div class="empty-state"><div class="empty-icon">🥗</div>Search a food above and add it to start tracking</div>`;return;}
+  ML.innerHTML=log.map(i=>`
+    <div class="meal-item">
+      <div><div class="item-name">${dot(i.cal/i.g*100)}${i.name}</div><div class="item-cat">${i.cat}</div></div>
+      <div class="item-g">${i.g}g</div>
+      <div class="item-cal">${i.cal} kcal</div>
+      <button class="btn-rm" data-id="${i.id}">✕</button>
+    </div>`).join('');
+  ML.querySelectorAll('.btn-rm').forEach(b=>b.addEventListener('click',()=>{
+    log=log.filter(x=>x.id!==+b.dataset.id);render();total();saveLog();
+  }));
+}
+
+CLR.addEventListener('click',()=>{log=[];render();total();saveLog();});
+
+// ── TOTAL ──────────────────────────────────────────────────────────────────────
+function total(){
+  const sum=log.reduce((s,i)=>s+i.cal,0);
+  const goal=parseInt(GOAL.value)||2000;
+  const pct=Math.min(sum/goal*100,100);
+  const over=sum>goal;
+  TN.textContent=sum.toLocaleString();
+  TC.textContent=`${log.length} item${log.length!==1?'s':''}`;
+  PRG.style.width=pct+'%';
+  PRG.className='progress-fill'+(over?' over':pct>=80?' warn':'');
+  const rawPct=goal?Math.round(sum/goal*100):0;
+  GPCT.textContent=`${rawPct}% of goal`;
+  const rem=goal-sum;
+  GREM.textContent=rem>=0?`${rem.toLocaleString()} kcal remaining`:`${Math.abs(rem).toLocaleString()} kcal over`;
+  GREM.style.color=rem<0?'var(--red)':rem<200?'var(--orange)':'var(--text-dim)';
+}
+
+GOAL.addEventListener('input',()=>{total();saveGoal();});
+
+// ── INIT ───────────────────────────────────────────────────────────────────────
+loadState();
+render();
+total();
+SI.focus();
+</script>
+</body>
+</html>
