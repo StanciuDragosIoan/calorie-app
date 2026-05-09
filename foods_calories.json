@@ -738,6 +738,18 @@
         {
           "name": "Telemea (Romanian cheese)",
           "calories": 270
+        },
+        {
+          "name": "Cheese, cow (yellow, semi-hard)",
+          "calories": 350
+        },
+        {
+          "name": "Mozzarella, part-skim (pizza)",
+          "calories": 254
+        },
+        {
+          "name": "Cheese, cow (light / reduced fat)",
+          "calories": 250
         }
       ],
       "yogurt_and_cream": [
@@ -780,6 +792,10 @@
         {
           "name": "Clotted cream",
           "calories": 586
+        },
+        {
+          "name": "Yogurt with fruits",
+          "calories": 136
         }
       ],
       "butter_and_fats": [
@@ -1504,6 +1520,10 @@
         {
           "name": "Teff (raw)",
           "calories": 367
+        },
+        {
+          "name": "Cereal, dry (generic)",
+          "calories": 450
         }
       ],
       "pasta": [
@@ -2452,6 +2472,10 @@
           "calories": 210
         },
         {
+          "name": "Pork slices, pan-fried (~15% fat)",
+          "calories": 255
+        },
+        {
           "name": "Pork tenderloin (roasted)",
           "calories": 166
         },
@@ -2796,6 +2820,10 @@
         {
           "name": "Omelette (cheese)",
           "calories": 195
+        },
+        {
+          "name": "Omelette (cheese, caramelised onion, dill)",
+          "calories": 220
         },
         {
           "name": "Boiled egg (hard)",
