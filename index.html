@@ -159,7 +159,23 @@ header { text-align: center; margin-bottom: 48px; animation: fadeDown 0.6s ease 
 @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(200,240,96,0.45)} 70%{box-shadow:0 0 0 12px rgba(200,240,96,0)} 100%{box-shadow:0 0 0 0 rgba(200,240,96,0)} }
 .pulse { animation: pulse 0.5s ease; }
 
-.search-card { animation: fadeUp 0.5s ease 0.05s both; }
+.search-card { animation: fadeUp 0.5s ease 0.05s both; position: relative; z-index: 2; }
+.goal-card { position: relative; z-index: 1; }
+
+/* Custom panel */
+.card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.card-header .card-label { margin-bottom: 0; display: inline; }
+.btn-custom-toggle { background: none; border: 1px solid var(--border2); border-radius: 20px; color: var(--text-muted); font-family: 'Epilogue', sans-serif; font-size: 0.72rem; padding: 4px 12px; cursor: pointer; transition: all 0.2s; }
+.btn-custom-toggle:hover, .btn-custom-toggle.active { border-color: var(--accent-dim); color: var(--accent); }
+.custom-panel { overflow: hidden; max-height: 0; transition: max-height 0.25s ease; }
+.custom-panel.open { max-height: 80px; }
+.custom-row { display: flex; gap: 8px; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 12px; }
+#custom-name { flex: 1; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'Epilogue', sans-serif; font-size: 0.97rem; padding: 13px 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+#custom-name:focus { border-color: var(--accent-dim); box-shadow: 0 0 0 3px var(--accent-glow); }
+#custom-name::placeholder { color: var(--text-muted); }
+#custom-cal { width: 88px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 1rem; padding: 13px 10px; outline: none; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; }
+#custom-cal:focus { border-color: var(--accent-dim); box-shadow: 0 0 0 3px var(--accent-glow); }
+#custom-cal::placeholder { color: var(--text-muted); font-size: 0.8rem; }
 
 @media(max-width:580px) {
   .search-row { flex-direction: column; }
@@ -181,7 +197,10 @@ header { text-align: center; margin-bottom: 48px; animation: fadeDown 0.6s ease 
 
   <!-- Search card -->
   <div class="card search-card">
-    <span class="card-label">Add food</span>
+    <div class="card-header">
+      <span class="card-label">Add food</span>
+      <button id="btn-custom-toggle" class="btn-custom-toggle">＋ custom</button>
+    </div>
     <div class="search-row">
       <div class="search-wrap">
         <span class="search-icon">🔍</span>
@@ -199,6 +218,13 @@ header { text-align: center; margin-bottom: 48px; animation: fadeDown 0.6s ease 
         <div class="preview-fcat" id="p-cat">—</div>
       </div>
       <div class="preview-fcal" id="p-cal">—</div>
+    </div>
+    <div id="custom-panel" class="custom-panel">
+      <div class="custom-row">
+        <input id="custom-name" type="text" placeholder="Food name" autocomplete="off" spellcheck="false" />
+        <input id="custom-cal" type="number" placeholder="kcal" min="1" max="9999" />
+        <button class="btn-add" id="btn-custom-add">＋ Add</button>
+      </div>
     </div>
   </div>
 
@@ -371,8 +397,8 @@ function render(){
   if(!log.length){ML.innerHTML=`<div class="empty-state"><div class="empty-icon">🥗</div>Search a food above and add it to start tracking</div>`;return;}
   ML.innerHTML=log.map(i=>`
     <div class="meal-item">
-      <div><div class="item-name">${dot(i.cal/i.g*100)}${i.name}</div><div class="item-cat">${i.cat}</div></div>
-      <div class="item-g">${i.g}g</div>
+      <div><div class="item-name">${i.custom?'':dot(i.cal/i.g*100)}${i.name}</div><div class="item-cat">${i.cat}</div></div>
+      <div class="item-g">${i.g!=null?i.g+'g':'—'}</div>
       <div class="item-cal">${i.cal} kcal</div>
       <button class="btn-rm" data-id="${i.id}">✕</button>
     </div>`).join('');
@@ -401,6 +427,33 @@ function total(){
 }
 
 GOAL.addEventListener('input',()=>{total();saveGoal();});
+
+// ── CUSTOM ENTRY ───────────────────────────────────────────────────────────────
+const CTGL=document.getElementById('btn-custom-toggle');
+const CPANEL=document.getElementById('custom-panel');
+const CNAME=document.getElementById('custom-name');
+const CCAL=document.getElementById('custom-cal');
+const CADD=document.getElementById('btn-custom-add');
+
+CTGL.addEventListener('click',()=>{
+  const open=CPANEL.classList.toggle('open');
+  CTGL.classList.toggle('active',open);
+  CTGL.textContent=open?'✕ hide':'＋ custom';
+  if(open)CNAME.focus();
+});
+CADD.addEventListener('click',addCustom);
+CNAME.addEventListener('keydown',e=>{if(e.key==='Enter')CCAL.focus();});
+CCAL.addEventListener('keydown',e=>{if(e.key==='Enter')addCustom();});
+function addCustom(){
+  const name=CNAME.value.trim();
+  const cal=parseInt(CCAL.value);
+  if(!name||!cal||cal<=0)return;
+  log.push({id:Date.now(),name,cat:'Custom',g:null,cal,custom:true});
+  render();total();saveLog();
+  CNAME.value='';CCAL.value='';
+  TN.classList.remove('pulse');void TN.offsetWidth;TN.classList.add('pulse');
+  CNAME.focus();
+}
 
 // ── INIT ───────────────────────────────────────────────────────────────────────
 loadState();
