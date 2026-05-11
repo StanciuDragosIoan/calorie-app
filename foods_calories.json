@@ -1,3500 +1,945 @@
 {
   "meta": {
-    "unit": "kcal per 100g (raw, unless stated)",
+    "unit": "kcal and protein (g) per 100g (raw, unless stated)",
     "source": "standard nutritional references",
-    "last_updated": "2026-04-24"
+    "last_updated": "2026-05-11"
   },
   "foods": {
     "meat": {
       "pork": [
-        {
-          "name": "Pork, ground (minced)",
-          "calories": 263
-        },
-        {
-          "name": "Pork belly",
-          "calories": 518
-        },
-        {
-          "name": "Pork shoulder",
-          "calories": 186
-        },
-        {
-          "name": "Pork neck / collar",
-          "calories": 225
-        },
-        {
-          "name": "Pork loin",
-          "calories": 182
-        },
-        {
-          "name": "Pork tenderloin",
-          "calories": 143
-        },
-        {
-          "name": "Pork cutlet (loin chop)",
-          "calories": 194
-        },
-        {
-          "name": "Pork ribs (spare ribs)",
-          "calories": 297
-        },
-        {
-          "name": "Pork back ribs",
-          "calories": 278
-        },
-        {
-          "name": "Pork leg (ham, raw)",
-          "calories": 157
-        },
-        {
-          "name": "Pork ear",
-          "calories": 166
-        },
-        {
-          "name": "Pork trotter (foot)",
-          "calories": 222
-        },
-        {
-          "name": "Pork liver",
-          "calories": 134
-        },
-        {
-          "name": "Pork kidney",
-          "calories": 100
-        },
-        {
-          "name": "Pork heart",
-          "calories": 119
-        },
-        {
-          "name": "Pork brain",
-          "calories": 108
-        },
-        {
-          "name": "Pork tongue",
-          "calories": 181
-        },
-        {
-          "name": "Pork skin (rind, raw)",
-          "calories": 376
-        },
-        {
-          "name": "Pork jowl",
-          "calories": 512
-        },
-        {
-          "name": "Pork back fat (lard, raw)",
-          "calories": 812
-        }
+        { "name": "Pork, ground (minced)", "calories": 263, "protein": 17 },
+        { "name": "Pork belly", "calories": 518, "protein": 9 },
+        { "name": "Pork shoulder", "calories": 186, "protein": 19 },
+        { "name": "Pork neck / collar", "calories": 225, "protein": 16 },
+        { "name": "Pork loin", "calories": 182, "protein": 22 },
+        { "name": "Pork tenderloin", "calories": 143, "protein": 22 },
+        { "name": "Pork cutlet (loin chop)", "calories": 194, "protein": 20 },
+        { "name": "Pork ribs (spare ribs)", "calories": 297, "protein": 18 },
+        { "name": "Pork back ribs", "calories": 278, "protein": 17 },
+        { "name": "Pork leg (ham, raw)", "calories": 157, "protein": 21 },
+        { "name": "Pork ear", "calories": 166, "protein": 17 },
+        { "name": "Pork trotter (foot)", "calories": 222, "protein": 20 },
+        { "name": "Pork liver", "calories": 134, "protein": 21 },
+        { "name": "Pork kidney", "calories": 100, "protein": 17 },
+        { "name": "Pork heart", "calories": 119, "protein": 17 },
+        { "name": "Pork brain", "calories": 108, "protein": 11 },
+        { "name": "Pork tongue", "calories": 181, "protein": 16 },
+        { "name": "Pork skin (rind, raw)", "calories": 376, "protein": 22 },
+        { "name": "Pork jowl", "calories": 512, "protein": 9 },
+        { "name": "Pork back fat (lard, raw)", "calories": 812, "protein": 3 }
       ],
       "chicken": [
-        {
-          "name": "Chicken breast, skinless",
-          "calories": 110
-        },
-        {
-          "name": "Chicken breast, with skin",
-          "calories": 172
-        },
-        {
-          "name": "Chicken thigh, skinless",
-          "calories": 150
-        },
-        {
-          "name": "Chicken thigh, with skin",
-          "calories": 209
-        },
-        {
-          "name": "Chicken drumstick, skinless",
-          "calories": 143
-        },
-        {
-          "name": "Chicken drumstick, with skin",
-          "calories": 185
-        },
-        {
-          "name": "Chicken wing",
-          "calories": 203
-        },
-        {
-          "name": "Chicken whole (average)",
-          "calories": 215
-        },
-        {
-          "name": "Chicken liver",
-          "calories": 119
-        },
-        {
-          "name": "Chicken gizzard",
-          "calories": 94
-        },
-        {
-          "name": "Chicken heart",
-          "calories": 153
-        },
-        {
-          "name": "Chicken neck",
-          "calories": 188
-        },
-        {
-          "name": "Chicken feet",
-          "calories": 215
-        },
-        {
-          "name": "Chicken back",
-          "calories": 198
-        },
-        {
-          "name": "Ground chicken",
-          "calories": 143
-        }
+        { "name": "Chicken breast, skinless", "calories": 110, "protein": 23 },
+        { "name": "Chicken breast, with skin", "calories": 172, "protein": 20 },
+        { "name": "Chicken thigh, skinless", "calories": 150, "protein": 19 },
+        { "name": "Chicken thigh, with skin", "calories": 209, "protein": 18 },
+        { "name": "Chicken drumstick, skinless", "calories": 143, "protein": 20 },
+        { "name": "Chicken drumstick, with skin", "calories": 185, "protein": 19 },
+        { "name": "Chicken wing", "calories": 203, "protein": 18 },
+        { "name": "Chicken whole (average)", "calories": 215, "protein": 19 },
+        { "name": "Chicken liver", "calories": 119, "protein": 17 },
+        { "name": "Chicken gizzard", "calories": 94, "protein": 18 },
+        { "name": "Chicken heart", "calories": 153, "protein": 16 },
+        { "name": "Chicken neck", "calories": 188, "protein": 15 },
+        { "name": "Chicken feet", "calories": 215, "protein": 16 },
+        { "name": "Chicken back", "calories": 198, "protein": 15 },
+        { "name": "Ground chicken", "calories": 143, "protein": 17 }
       ],
       "beef": [
-        {
-          "name": "Beef, ground (minced) 80/20",
-          "calories": 254
-        },
-        {
-          "name": "Beef, ground (minced) 90/10",
-          "calories": 176
-        },
-        {
-          "name": "Beef sirloin steak",
-          "calories": 207
-        },
-        {
-          "name": "Beef ribeye steak",
-          "calories": 291
-        },
-        {
-          "name": "Beef tenderloin (fillet)",
-          "calories": 219
-        },
-        {
-          "name": "Beef brisket",
-          "calories": 283
-        },
-        {
-          "name": "Beef chuck",
-          "calories": 235
-        },
-        {
-          "name": "Beef short ribs",
-          "calories": 310
-        },
-        {
-          "name": "Beef flank steak",
-          "calories": 192
-        },
-        {
-          "name": "Beef skirt steak",
-          "calories": 211
-        },
-        {
-          "name": "Beef T-bone steak",
-          "calories": 247
-        },
-        {
-          "name": "Beef liver",
-          "calories": 135
-        },
-        {
-          "name": "Beef kidney",
-          "calories": 97
-        },
-        {
-          "name": "Beef heart",
-          "calories": 112
-        },
-        {
-          "name": "Beef tongue",
-          "calories": 224
-        },
-        {
-          "name": "Beef tripe",
-          "calories": 85
-        },
-        {
-          "name": "Beef oxtail",
-          "calories": 262
-        },
-        {
-          "name": "Beef bone marrow",
-          "calories": 786
-        },
-        {
-          "name": "Veal cutlet",
-          "calories": 152
-        },
-        {
-          "name": "Veal liver",
-          "calories": 140
-        }
+        { "name": "Beef, ground (minced) 80/20", "calories": 254, "protein": 17 },
+        { "name": "Beef, ground (minced) 90/10", "calories": 176, "protein": 20 },
+        { "name": "Beef sirloin steak", "calories": 207, "protein": 26 },
+        { "name": "Beef ribeye steak", "calories": 291, "protein": 22 },
+        { "name": "Beef tenderloin (fillet)", "calories": 219, "protein": 22 },
+        { "name": "Beef brisket", "calories": 283, "protein": 18 },
+        { "name": "Beef chuck", "calories": 235, "protein": 19 },
+        { "name": "Beef short ribs", "calories": 310, "protein": 18 },
+        { "name": "Beef flank steak", "calories": 192, "protein": 23 },
+        { "name": "Beef skirt steak", "calories": 211, "protein": 22 },
+        { "name": "Beef T-bone steak", "calories": 247, "protein": 20 },
+        { "name": "Beef liver", "calories": 135, "protein": 20 },
+        { "name": "Beef kidney", "calories": 97, "protein": 17 },
+        { "name": "Beef heart", "calories": 112, "protein": 17 },
+        { "name": "Beef tongue", "calories": 224, "protein": 16 },
+        { "name": "Beef tripe", "calories": 85, "protein": 12 },
+        { "name": "Beef oxtail", "calories": 262, "protein": 18 },
+        { "name": "Beef bone marrow", "calories": 786, "protein": 7 },
+        { "name": "Veal cutlet", "calories": 152, "protein": 24 },
+        { "name": "Veal liver", "calories": 140, "protein": 19 }
       ],
       "lamb": [
-        {
-          "name": "Lamb leg",
-          "calories": 206
-        },
-        {
-          "name": "Lamb shoulder",
-          "calories": 234
-        },
-        {
-          "name": "Lamb chop (loin)",
-          "calories": 283
-        },
-        {
-          "name": "Lamb rack (rib)",
-          "calories": 294
-        },
-        {
-          "name": "Lamb shank",
-          "calories": 191
-        },
-        {
-          "name": "Lamb liver",
-          "calories": 139
-        },
-        {
-          "name": "Lamb kidney",
-          "calories": 97
-        },
-        {
-          "name": "Lamb heart",
-          "calories": 119
-        },
-        {
-          "name": "Ground lamb",
-          "calories": 258
-        }
+        { "name": "Lamb leg", "calories": 206, "protein": 25 },
+        { "name": "Lamb shoulder", "calories": 234, "protein": 20 },
+        { "name": "Lamb chop (loin)", "calories": 283, "protein": 20 },
+        { "name": "Lamb rack (rib)", "calories": 294, "protein": 19 },
+        { "name": "Lamb shank", "calories": 191, "protein": 22 },
+        { "name": "Lamb liver", "calories": 139, "protein": 21 },
+        { "name": "Lamb kidney", "calories": 97, "protein": 16 },
+        { "name": "Lamb heart", "calories": 119, "protein": 17 },
+        { "name": "Ground lamb", "calories": 258, "protein": 17 }
       ],
       "turkey": [
-        {
-          "name": "Turkey breast, skinless",
-          "calories": 104
-        },
-        {
-          "name": "Turkey breast, with skin",
-          "calories": 153
-        },
-        {
-          "name": "Turkey thigh, skinless",
-          "calories": 162
-        },
-        {
-          "name": "Turkey leg",
-          "calories": 144
-        },
-        {
-          "name": "Turkey ground",
-          "calories": 149
-        },
-        {
-          "name": "Turkey liver",
-          "calories": 132
-        }
+        { "name": "Turkey breast, skinless", "calories": 104, "protein": 24 },
+        { "name": "Turkey breast, with skin", "calories": 153, "protein": 22 },
+        { "name": "Turkey thigh, skinless", "calories": 162, "protein": 20 },
+        { "name": "Turkey leg", "calories": 144, "protein": 20 },
+        { "name": "Turkey ground", "calories": 149, "protein": 19 },
+        { "name": "Turkey liver", "calories": 132, "protein": 20 }
       ],
       "duck": [
-        {
-          "name": "Duck breast, skinless",
-          "calories": 140
-        },
-        {
-          "name": "Duck breast, with skin",
-          "calories": 337
-        },
-        {
-          "name": "Duck whole (average)",
-          "calories": 404
-        },
-        {
-          "name": "Duck leg",
-          "calories": 259
-        },
-        {
-          "name": "Duck liver",
-          "calories": 136
-        }
+        { "name": "Duck breast, skinless", "calories": 140, "protein": 23 },
+        { "name": "Duck breast, with skin", "calories": 337, "protein": 19 },
+        { "name": "Duck whole (average)", "calories": 404, "protein": 19 },
+        { "name": "Duck leg", "calories": 259, "protein": 19 },
+        { "name": "Duck liver", "calories": 136, "protein": 18 }
       ],
       "game_and_other": [
-        {
-          "name": "Venison (deer)",
-          "calories": 158
-        },
-        {
-          "name": "Rabbit",
-          "calories": 136
-        },
-        {
-          "name": "Goat",
-          "calories": 109
-        },
-        {
-          "name": "Bison / Buffalo",
-          "calories": 146
-        },
-        {
-          "name": "Wild boar",
-          "calories": 160
-        },
-        {
-          "name": "Quail",
-          "calories": 192
-        },
-        {
-          "name": "Goose",
-          "calories": 371
-        },
-        {
-          "name": "Horse",
-          "calories": 133
-        },
-        {
-          "name": "Frog legs",
-          "calories": 73
-        }
+        { "name": "Venison (deer)", "calories": 158, "protein": 26 },
+        { "name": "Rabbit", "calories": 136, "protein": 21 },
+        { "name": "Goat", "calories": 109, "protein": 20 },
+        { "name": "Bison / Buffalo", "calories": 146, "protein": 25 },
+        { "name": "Wild boar", "calories": 160, "protein": 22 },
+        { "name": "Quail", "calories": 192, "protein": 22 },
+        { "name": "Goose", "calories": 371, "protein": 26 },
+        { "name": "Horse", "calories": 133, "protein": 21 },
+        { "name": "Frog legs", "calories": 73, "protein": 16 }
       ]
     },
     "fish_and_seafood": {
       "fish": [
-        {
-          "name": "Salmon, Atlantic",
-          "calories": 208
-        },
-        {
-          "name": "Salmon, smoked",
-          "calories": 117
-        },
-        {
-          "name": "Tuna, yellowfin",
-          "calories": 109
-        },
-        {
-          "name": "Tuna, bluefin",
-          "calories": 144
-        },
-        {
-          "name": "Tuna, canned in water",
-          "calories": 86
-        },
-        {
-          "name": "Tuna, canned in oil",
-          "calories": 198
-        },
-        {
-          "name": "Cod",
-          "calories": 82
-        },
-        {
-          "name": "Haddock",
-          "calories": 87
-        },
-        {
-          "name": "Pollock",
-          "calories": 92
-        },
-        {
-          "name": "Tilapia",
-          "calories": 96
-        },
-        {
-          "name": "Trout, rainbow",
-          "calories": 141
-        },
-        {
-          "name": "Mackerel",
-          "calories": 205
-        },
-        {
-          "name": "Sardines, fresh",
-          "calories": 208
-        },
-        {
-          "name": "Sardines, canned in oil",
-          "calories": 208
-        },
-        {
-          "name": "Herring",
-          "calories": 158
-        },
-        {
-          "name": "Anchovy, fresh",
-          "calories": 131
-        },
-        {
-          "name": "Sea bass",
-          "calories": 97
-        },
-        {
-          "name": "Halibut",
-          "calories": 111
-        },
-        {
-          "name": "Sole / Flounder",
-          "calories": 86
-        },
-        {
-          "name": "Catfish",
-          "calories": 95
-        },
-        {
-          "name": "Carp",
-          "calories": 127
-        },
-        {
-          "name": "Pike",
-          "calories": 88
-        },
-        {
-          "name": "Perch",
-          "calories": 91
-        },
-        {
-          "name": "Swordfish",
-          "calories": 121
-        },
-        {
-          "name": "Mahi-mahi",
-          "calories": 109
-        },
-        {
-          "name": "Red snapper",
-          "calories": 100
-        },
-        {
-          "name": "Eel",
-          "calories": 184
-        },
-        {
-          "name": "Monkfish",
-          "calories": 76
-        },
-        {
-          "name": "Pangasius (basa)",
-          "calories": 83
-        },
-        {
-          "name": "Sprat",
-          "calories": 125
-        }
+        { "name": "Salmon, Atlantic", "calories": 208, "protein": 20 },
+        { "name": "Salmon, smoked", "calories": 117, "protein": 18 },
+        { "name": "Tuna, yellowfin", "calories": 109, "protein": 24 },
+        { "name": "Tuna, bluefin", "calories": 144, "protein": 23 },
+        { "name": "Tuna, canned in water", "calories": 86, "protein": 22 },
+        { "name": "Tuna, canned in oil", "calories": 198, "protein": 22 },
+        { "name": "Cod", "calories": 82, "protein": 18 },
+        { "name": "Haddock", "calories": 87, "protein": 19 },
+        { "name": "Pollock", "calories": 92, "protein": 19 },
+        { "name": "Tilapia", "calories": 96, "protein": 20 },
+        { "name": "Trout, rainbow", "calories": 141, "protein": 20 },
+        { "name": "Mackerel", "calories": 205, "protein": 19 },
+        { "name": "Sardines, fresh", "calories": 208, "protein": 21 },
+        { "name": "Sardines, canned in oil", "calories": 208, "protein": 21 },
+        { "name": "Herring", "calories": 158, "protein": 18 },
+        { "name": "Anchovy, fresh", "calories": 131, "protein": 20 },
+        { "name": "Sea bass", "calories": 97, "protein": 19 },
+        { "name": "Halibut", "calories": 111, "protein": 22 },
+        { "name": "Sole / Flounder", "calories": 86, "protein": 18 },
+        { "name": "Catfish", "calories": 95, "protein": 18 },
+        { "name": "Carp", "calories": 127, "protein": 18 },
+        { "name": "Pike", "calories": 88, "protein": 19 },
+        { "name": "Perch", "calories": 91, "protein": 18 },
+        { "name": "Swordfish", "calories": 121, "protein": 20 },
+        { "name": "Mahi-mahi", "calories": 109, "protein": 21 },
+        { "name": "Red snapper", "calories": 100, "protein": 20 },
+        { "name": "Eel", "calories": 184, "protein": 15 },
+        { "name": "Monkfish", "calories": 76, "protein": 16 },
+        { "name": "Pangasius (basa)", "calories": 83, "protein": 18 },
+        { "name": "Sprat", "calories": 125, "protein": 17 }
       ],
       "seafood": [
-        {
-          "name": "Shrimp / Prawns",
-          "calories": 85
-        },
-        {
-          "name": "Lobster",
-          "calories": 89
-        },
-        {
-          "name": "Crab (blue)",
-          "calories": 87
-        },
-        {
-          "name": "King crab",
-          "calories": 84
-        },
-        {
-          "name": "Scallops",
-          "calories": 88
-        },
-        {
-          "name": "Oysters",
-          "calories": 68
-        },
-        {
-          "name": "Mussels",
-          "calories": 86
-        },
-        {
-          "name": "Clams",
-          "calories": 74
-        },
-        {
-          "name": "Squid (calamari)",
-          "calories": 92
-        },
-        {
-          "name": "Octopus",
-          "calories": 82
-        },
-        {
-          "name": "Cuttlefish",
-          "calories": 79
-        },
-        {
-          "name": "Sea urchin (uni)",
-          "calories": 119
-        },
-        {
-          "name": "Cockles",
-          "calories": 53
-        },
-        {
-          "name": "Abalone",
-          "calories": 105
-        }
+        { "name": "Shrimp / Prawns", "calories": 85, "protein": 20 },
+        { "name": "Lobster", "calories": 89, "protein": 19 },
+        { "name": "Crab (blue)", "calories": 87, "protein": 18 },
+        { "name": "King crab", "calories": 84, "protein": 19 },
+        { "name": "Scallops", "calories": 88, "protein": 17 },
+        { "name": "Oysters", "calories": 68, "protein": 9 },
+        { "name": "Mussels", "calories": 86, "protein": 12 },
+        { "name": "Clams", "calories": 74, "protein": 14 },
+        { "name": "Squid (calamari)", "calories": 92, "protein": 16 },
+        { "name": "Octopus", "calories": 82, "protein": 15 },
+        { "name": "Cuttlefish", "calories": 79, "protein": 16 },
+        { "name": "Sea urchin (uni)", "calories": 119, "protein": 13 },
+        { "name": "Cockles", "calories": 53, "protein": 12 },
+        { "name": "Abalone", "calories": 105, "protein": 17 }
       ],
       "roe_and_caviar": [
-        {
-          "name": "Salmon roe",
-          "calories": 250
-        },
-        {
-          "name": "Caviar (sturgeon)",
-          "calories": 264
-        },
-        {
-          "name": "Cod roe",
-          "calories": 110
-        },
-        {
-          "name": "Tobiko (flying fish roe)",
-          "calories": 160
-        }
+        { "name": "Salmon roe", "calories": 250, "protein": 29 },
+        { "name": "Caviar (sturgeon)", "calories": 264, "protein": 25 },
+        { "name": "Cod roe", "calories": 110, "protein": 22 },
+        { "name": "Tobiko (flying fish roe)", "calories": 160, "protein": 18 }
       ]
     },
     "eggs_and_dairy": {
       "eggs": [
-        {
-          "name": "Chicken egg, whole (raw)",
-          "calories": 143
-        },
-        {
-          "name": "Chicken egg, yolk only",
-          "calories": 322
-        },
-        {
-          "name": "Chicken egg, white only",
-          "calories": 52
-        },
-        {
-          "name": "Duck egg",
-          "calories": 185
-        },
-        {
-          "name": "Quail egg",
-          "calories": 158
-        },
-        {
-          "name": "Goose egg",
-          "calories": 185
-        },
-        {
-          "name": "Turkey egg",
-          "calories": 171
-        }
+        { "name": "Chicken egg, whole (raw)", "calories": 143, "protein": 13 },
+        { "name": "Chicken egg, yolk only", "calories": 322, "protein": 16 },
+        { "name": "Chicken egg, white only", "calories": 52, "protein": 11 },
+        { "name": "Duck egg", "calories": 185, "protein": 13 },
+        { "name": "Quail egg", "calories": 158, "protein": 13 },
+        { "name": "Goose egg", "calories": 185, "protein": 14 },
+        { "name": "Turkey egg", "calories": 171, "protein": 14 }
       ],
       "milk": [
-        {
-          "name": "Cow milk, whole (3.5%)",
-          "calories": 61
-        },
-        {
-          "name": "Cow milk, semi-skimmed (1.5%)",
-          "calories": 46
-        },
-        {
-          "name": "Cow milk, skimmed (0.1%)",
-          "calories": 33
-        },
-        {
-          "name": "Goat milk",
-          "calories": 69
-        },
-        {
-          "name": "Sheep milk",
-          "calories": 108
-        },
-        {
-          "name": "Buffalo milk",
-          "calories": 97
-        },
-        {
-          "name": "Almond milk (unsweetened)",
-          "calories": 15
-        },
-        {
-          "name": "Oat milk (unsweetened)",
-          "calories": 47
-        },
-        {
-          "name": "Soy milk (unsweetened)",
-          "calories": 33
-        },
-        {
-          "name": "Coconut milk (full fat)",
-          "calories": 230
-        },
-        {
-          "name": "Rice milk",
-          "calories": 47
-        }
+        { "name": "Cow milk, whole (3.5%)", "calories": 61, "protein": 3 },
+        { "name": "Cow milk, semi-skimmed (1.5%)", "calories": 46, "protein": 3 },
+        { "name": "Cow milk, skimmed (0.1%)", "calories": 33, "protein": 3 },
+        { "name": "Goat milk", "calories": 69, "protein": 4 },
+        { "name": "Sheep milk", "calories": 108, "protein": 5 },
+        { "name": "Buffalo milk", "calories": 97, "protein": 4 },
+        { "name": "Almond milk (unsweetened)", "calories": 15, "protein": 1 },
+        { "name": "Oat milk (unsweetened)", "calories": 47, "protein": 1 },
+        { "name": "Soy milk (unsweetened)", "calories": 33, "protein": 3 },
+        { "name": "Coconut milk (full fat)", "calories": 230, "protein": 2 },
+        { "name": "Rice milk", "calories": 47, "protein": 0 }
       ],
       "cheese": [
-        {
-          "name": "Cheddar",
-          "calories": 403
-        },
-        {
-          "name": "Parmesan",
-          "calories": 431
-        },
-        {
-          "name": "Mozzarella, full fat",
-          "calories": 280
-        },
-        {
-          "name": "Mozzarella, low moisture",
-          "calories": 318
-        },
-        {
-          "name": "Feta",
-          "calories": 264
-        },
-        {
-          "name": "Brie",
-          "calories": 334
-        },
-        {
-          "name": "Camembert",
-          "calories": 300
-        },
-        {
-          "name": "Gouda",
-          "calories": 356
-        },
-        {
-          "name": "Edam",
-          "calories": 357
-        },
-        {
-          "name": "Emmental",
-          "calories": 380
-        },
-        {
-          "name": "Gruyère",
-          "calories": 413
-        },
-        {
-          "name": "Ricotta",
-          "calories": 174
-        },
-        {
-          "name": "Cottage cheese (full fat)",
-          "calories": 98
-        },
-        {
-          "name": "Cottage cheese (low fat)",
-          "calories": 72
-        },
-        {
-          "name": "Cream cheese",
-          "calories": 342
-        },
-        {
-          "name": "Mascarpone",
-          "calories": 429
-        },
-        {
-          "name": "Blue cheese (Roquefort)",
-          "calories": 369
-        },
-        {
-          "name": "Halloumi",
-          "calories": 321
-        },
-        {
-          "name": "Pecorino Romano",
-          "calories": 387
-        },
-        {
-          "name": "Manchego",
-          "calories": 395
-        },
-        {
-          "name": "Swiss cheese",
-          "calories": 380
-        },
-        {
-          "name": "Provolone",
-          "calories": 352
-        },
-        {
-          "name": "Burrata",
-          "calories": 300
-        },
-        {
-          "name": "Paneer",
-          "calories": 321
-        },
-        {
-          "name": "Quark (low fat)",
-          "calories": 67
-        },
-        {
-          "name": "Telemea (Romanian cheese)",
-          "calories": 270
-        },
-        {
-          "name": "Cheese, cow (yellow, semi-hard)",
-          "calories": 350
-        },
-        {
-          "name": "Mozzarella, part-skim (pizza)",
-          "calories": 254
-        },
-        {
-          "name": "Cheese, cow (light / reduced fat)",
-          "calories": 250
-        }
+        { "name": "Cheddar", "calories": 403, "protein": 25 },
+        { "name": "Parmesan", "calories": 431, "protein": 38 },
+        { "name": "Mozzarella, full fat", "calories": 280, "protein": 22 },
+        { "name": "Mozzarella, low moisture", "calories": 318, "protein": 28 },
+        { "name": "Feta", "calories": 264, "protein": 14 },
+        { "name": "Brie", "calories": 334, "protein": 20 },
+        { "name": "Camembert", "calories": 300, "protein": 19 },
+        { "name": "Gouda", "calories": 356, "protein": 25 },
+        { "name": "Edam", "calories": 357, "protein": 25 },
+        { "name": "Emmental", "calories": 380, "protein": 29 },
+        { "name": "Gruyère", "calories": 413, "protein": 30 },
+        { "name": "Ricotta", "calories": 174, "protein": 11 },
+        { "name": "Cottage cheese (full fat)", "calories": 98, "protein": 11 },
+        { "name": "Cottage cheese (low fat)", "calories": 72, "protein": 12 },
+        { "name": "Cream cheese", "calories": 342, "protein": 6 },
+        { "name": "Mascarpone", "calories": 429, "protein": 5 },
+        { "name": "Blue cheese (Roquefort)", "calories": 369, "protein": 22 },
+        { "name": "Halloumi", "calories": 321, "protein": 21 },
+        { "name": "Pecorino Romano", "calories": 387, "protein": 32 },
+        { "name": "Manchego", "calories": 395, "protein": 33 },
+        { "name": "Swiss cheese", "calories": 380, "protein": 28 },
+        { "name": "Provolone", "calories": 352, "protein": 25 },
+        { "name": "Burrata", "calories": 300, "protein": 14 },
+        { "name": "Paneer", "calories": 321, "protein": 18 },
+        { "name": "Quark (low fat)", "calories": 67, "protein": 12 },
+        { "name": "Telemea (Romanian cheese)", "calories": 270, "protein": 16 },
+        { "name": "Cheese, cow (yellow, semi-hard)", "calories": 350, "protein": 25 },
+        { "name": "Mozzarella, part-skim (pizza)", "calories": 254, "protein": 24 },
+        { "name": "Cheese, cow (light / reduced fat)", "calories": 250, "protein": 25 }
       ],
       "yogurt_and_cream": [
-        {
-          "name": "Greek yogurt (full fat)",
-          "calories": 97
-        },
-        {
-          "name": "Greek yogurt (0%)",
-          "calories": 59
-        },
-        {
-          "name": "Plain yogurt (whole milk)",
-          "calories": 61
-        },
-        {
-          "name": "Sour cream",
-          "calories": 193
-        },
-        {
-          "name": "Heavy cream (whipping)",
-          "calories": 340
-        },
-        {
-          "name": "Light cream (coffee cream)",
-          "calories": 195
-        },
-        {
-          "name": "Crème fraîche",
-          "calories": 292
-        },
-        {
-          "name": "Kefir (whole milk)",
-          "calories": 61
-        },
-        {
-          "name": "Buttermilk",
-          "calories": 40
-        },
-        {
-          "name": "Clotted cream",
-          "calories": 586
-        },
-        {
-          "name": "Yogurt with fruits",
-          "calories": 136
-        }
+        { "name": "Greek yogurt (full fat)", "calories": 97, "protein": 9 },
+        { "name": "Greek yogurt (0%)", "calories": 59, "protein": 10 },
+        { "name": "Plain yogurt (whole milk)", "calories": 61, "protein": 4 },
+        { "name": "Sour cream", "calories": 193, "protein": 2 },
+        { "name": "Heavy cream (whipping)", "calories": 340, "protein": 2 },
+        { "name": "Light cream (coffee cream)", "calories": 195, "protein": 3 },
+        { "name": "Crème fraîche", "calories": 292, "protein": 3 },
+        { "name": "Kefir (whole milk)", "calories": 61, "protein": 3 },
+        { "name": "Buttermilk", "calories": 40, "protein": 3 },
+        { "name": "Clotted cream", "calories": 586, "protein": 2 },
+        { "name": "Yogurt with fruits", "calories": 136, "protein": 4 }
       ],
       "butter_and_fats": [
-        {
-          "name": "Butter, unsalted",
-          "calories": 717
-        },
-        {
-          "name": "Butter, salted",
-          "calories": 714
-        },
-        {
-          "name": "Ghee (clarified butter)",
-          "calories": 900
-        },
-        {
-          "name": "Lard (pork fat, rendered)",
-          "calories": 902
-        },
-        {
-          "name": "Tallow (beef fat, rendered)",
-          "calories": 902
-        },
-        {
-          "name": "Duck fat",
-          "calories": 900
-        },
-        {
-          "name": "Margarine",
-          "calories": 720
-        }
+        { "name": "Butter, unsalted", "calories": 717, "protein": 1 },
+        { "name": "Butter, salted", "calories": 714, "protein": 1 },
+        { "name": "Ghee (clarified butter)", "calories": 900, "protein": 0 },
+        { "name": "Lard (pork fat, rendered)", "calories": 902, "protein": 0 },
+        { "name": "Tallow (beef fat, rendered)", "calories": 902, "protein": 0 },
+        { "name": "Duck fat", "calories": 900, "protein": 0 },
+        { "name": "Margarine", "calories": 720, "protein": 0 }
       ]
     },
     "vegetables": {
       "leafy_greens": [
-        {
-          "name": "Spinach",
-          "calories": 23
-        },
-        {
-          "name": "Kale",
-          "calories": 49
-        },
-        {
-          "name": "Arugula (rocket)",
-          "calories": 25
-        },
-        {
-          "name": "Romaine lettuce",
-          "calories": 17
-        },
-        {
-          "name": "Iceberg lettuce",
-          "calories": 14
-        },
-        {
-          "name": "Swiss chard",
-          "calories": 19
-        },
-        {
-          "name": "Collard greens",
-          "calories": 32
-        },
-        {
-          "name": "Bok choy",
-          "calories": 13
-        },
-        {
-          "name": "Cabbage, green",
-          "calories": 25
-        },
-        {
-          "name": "Cabbage, red",
-          "calories": 31
-        },
-        {
-          "name": "Cabbage, savoy",
-          "calories": 27
-        },
-        {
-          "name": "Brussels sprouts",
-          "calories": 43
-        },
-        {
-          "name": "Endive",
-          "calories": 17
-        },
-        {
-          "name": "Watercress",
-          "calories": 11
-        },
-        {
-          "name": "Radicchio",
-          "calories": 23
-        },
-        {
-          "name": "Microgreens (average)",
-          "calories": 30
-        }
+        { "name": "Spinach", "calories": 23, "protein": 3 },
+        { "name": "Kale", "calories": 49, "protein": 4 },
+        { "name": "Arugula (rocket)", "calories": 25, "protein": 3 },
+        { "name": "Romaine lettuce", "calories": 17, "protein": 1 },
+        { "name": "Iceberg lettuce", "calories": 14, "protein": 1 },
+        { "name": "Swiss chard", "calories": 19, "protein": 2 },
+        { "name": "Collard greens", "calories": 32, "protein": 3 },
+        { "name": "Bok choy", "calories": 13, "protein": 2 },
+        { "name": "Cabbage, green", "calories": 25, "protein": 1 },
+        { "name": "Cabbage, red", "calories": 31, "protein": 1 },
+        { "name": "Cabbage, savoy", "calories": 27, "protein": 2 },
+        { "name": "Brussels sprouts", "calories": 43, "protein": 3 },
+        { "name": "Endive", "calories": 17, "protein": 1 },
+        { "name": "Watercress", "calories": 11, "protein": 2 },
+        { "name": "Radicchio", "calories": 23, "protein": 1 },
+        { "name": "Microgreens (average)", "calories": 30, "protein": 3 }
       ],
       "root_vegetables": [
-        {
-          "name": "Carrot",
-          "calories": 41
-        },
-        {
-          "name": "Potato, white",
-          "calories": 77
-        },
-        {
-          "name": "Potato, sweet",
-          "calories": 86
-        },
-        {
-          "name": "Beetroot",
-          "calories": 43
-        },
-        {
-          "name": "Parsnip",
-          "calories": 75
-        },
-        {
-          "name": "Turnip",
-          "calories": 28
-        },
-        {
-          "name": "Radish",
-          "calories": 16
-        },
-        {
-          "name": "Daikon radish",
-          "calories": 18
-        },
-        {
-          "name": "Celeriac",
-          "calories": 42
-        },
-        {
-          "name": "Ginger root",
-          "calories": 80
-        },
-        {
-          "name": "Turmeric root",
-          "calories": 354
-        },
-        {
-          "name": "Horseradish root",
-          "calories": 48
-        },
-        {
-          "name": "Jerusalem artichoke",
-          "calories": 73
-        },
-        {
-          "name": "Yam",
-          "calories": 118
-        },
-        {
-          "name": "Cassava (yuca)",
-          "calories": 160
-        },
-        {
-          "name": "Taro root",
-          "calories": 112
-        }
+        { "name": "Carrot", "calories": 41, "protein": 1 },
+        { "name": "Potato, white", "calories": 77, "protein": 2 },
+        { "name": "Potato, sweet", "calories": 86, "protein": 2 },
+        { "name": "Beetroot", "calories": 43, "protein": 2 },
+        { "name": "Parsnip", "calories": 75, "protein": 1 },
+        { "name": "Turnip", "calories": 28, "protein": 1 },
+        { "name": "Radish", "calories": 16, "protein": 1 },
+        { "name": "Daikon radish", "calories": 18, "protein": 1 },
+        { "name": "Celeriac", "calories": 42, "protein": 2 },
+        { "name": "Ginger root", "calories": 80, "protein": 2 },
+        { "name": "Turmeric root", "calories": 354, "protein": 8 },
+        { "name": "Horseradish root", "calories": 48, "protein": 1 },
+        { "name": "Jerusalem artichoke", "calories": 73, "protein": 2 },
+        { "name": "Yam", "calories": 118, "protein": 2 },
+        { "name": "Cassava (yuca)", "calories": 160, "protein": 1 },
+        { "name": "Taro root", "calories": 112, "protein": 2 }
       ],
       "brassicas": [
-        {
-          "name": "Broccoli",
-          "calories": 34
-        },
-        {
-          "name": "Cauliflower",
-          "calories": 25
-        },
-        {
-          "name": "Kohlrabi",
-          "calories": 27
-        },
-        {
-          "name": "Romanesco",
-          "calories": 30
-        }
+        { "name": "Broccoli", "calories": 34, "protein": 3 },
+        { "name": "Cauliflower", "calories": 25, "protein": 2 },
+        { "name": "Kohlrabi", "calories": 27, "protein": 2 },
+        { "name": "Romanesco", "calories": 30, "protein": 3 }
       ],
       "alliums": [
-        {
-          "name": "Onion, yellow",
-          "calories": 40
-        },
-        {
-          "name": "Onion, red",
-          "calories": 42
-        },
-        {
-          "name": "Onion, white",
-          "calories": 42
-        },
-        {
-          "name": "Shallot",
-          "calories": 72
-        },
-        {
-          "name": "Garlic",
-          "calories": 149
-        },
-        {
-          "name": "Leek",
-          "calories": 61
-        },
-        {
-          "name": "Spring onion (scallion)",
-          "calories": 32
-        },
-        {
-          "name": "Chive",
-          "calories": 30
-        }
+        { "name": "Onion, yellow", "calories": 40, "protein": 1 },
+        { "name": "Onion, red", "calories": 42, "protein": 1 },
+        { "name": "Onion, white", "calories": 42, "protein": 1 },
+        { "name": "Shallot", "calories": 72, "protein": 3 },
+        { "name": "Garlic", "calories": 149, "protein": 6 },
+        { "name": "Leek", "calories": 61, "protein": 2 },
+        { "name": "Spring onion (scallion)", "calories": 32, "protein": 2 },
+        { "name": "Chive", "calories": 30, "protein": 3 }
       ],
       "nightshades": [
-        {
-          "name": "Tomato, red",
-          "calories": 18
-        },
-        {
-          "name": "Tomato, cherry",
-          "calories": 18
-        },
-        {
-          "name": "Bell pepper, red",
-          "calories": 31
-        },
-        {
-          "name": "Bell pepper, green",
-          "calories": 20
-        },
-        {
-          "name": "Bell pepper, yellow",
-          "calories": 27
-        },
-        {
-          "name": "Chili pepper, red",
-          "calories": 40
-        },
-        {
-          "name": "Jalapeño",
-          "calories": 29
-        },
-        {
-          "name": "Eggplant (aubergine)",
-          "calories": 25
-        },
-        {
-          "name": "Tomatillo",
-          "calories": 32
-        }
+        { "name": "Tomato, red", "calories": 18, "protein": 1 },
+        { "name": "Tomato, cherry", "calories": 18, "protein": 1 },
+        { "name": "Bell pepper, red", "calories": 31, "protein": 1 },
+        { "name": "Bell pepper, green", "calories": 20, "protein": 1 },
+        { "name": "Bell pepper, yellow", "calories": 27, "protein": 1 },
+        { "name": "Chili pepper, red", "calories": 40, "protein": 2 },
+        { "name": "Jalapeño", "calories": 29, "protein": 1 },
+        { "name": "Eggplant (aubergine)", "calories": 25, "protein": 1 },
+        { "name": "Tomatillo", "calories": 32, "protein": 1 }
       ],
       "squash_and_gourds": [
-        {
-          "name": "Zucchini (courgette)",
-          "calories": 17
-        },
-        {
-          "name": "Cucumber",
-          "calories": 15
-        },
-        {
-          "name": "Pumpkin",
-          "calories": 26
-        },
-        {
-          "name": "Butternut squash",
-          "calories": 45
-        },
-        {
-          "name": "Acorn squash",
-          "calories": 40
-        },
-        {
-          "name": "Spaghetti squash",
-          "calories": 31
-        },
-        {
-          "name": "Kabocha squash",
-          "calories": 34
-        }
+        { "name": "Zucchini (courgette)", "calories": 17, "protein": 1 },
+        { "name": "Cucumber", "calories": 15, "protein": 1 },
+        { "name": "Pumpkin", "calories": 26, "protein": 1 },
+        { "name": "Butternut squash", "calories": 45, "protein": 1 },
+        { "name": "Acorn squash", "calories": 40, "protein": 1 },
+        { "name": "Spaghetti squash", "calories": 31, "protein": 1 },
+        { "name": "Kabocha squash", "calories": 34, "protein": 1 }
       ],
       "stalks_and_stems": [
-        {
-          "name": "Celery",
-          "calories": 16
-        },
-        {
-          "name": "Asparagus",
-          "calories": 20
-        },
-        {
-          "name": "Fennel bulb",
-          "calories": 31
-        },
-        {
-          "name": "Artichoke (globe)",
-          "calories": 47
-        },
-        {
-          "name": "Rhubarb",
-          "calories": 21
-        },
-        {
-          "name": "Bamboo shoots",
-          "calories": 27
-        }
+        { "name": "Celery", "calories": 16, "protein": 1 },
+        { "name": "Asparagus", "calories": 20, "protein": 2 },
+        { "name": "Fennel bulb", "calories": 31, "protein": 1 },
+        { "name": "Artichoke (globe)", "calories": 47, "protein": 3 },
+        { "name": "Rhubarb", "calories": 21, "protein": 1 },
+        { "name": "Bamboo shoots", "calories": 27, "protein": 3 }
       ],
       "mushrooms": [
-        {
-          "name": "Button mushroom (white)",
-          "calories": 22
-        },
-        {
-          "name": "Portobello mushroom",
-          "calories": 26
-        },
-        {
-          "name": "Shiitake mushroom",
-          "calories": 34
-        },
-        {
-          "name": "Oyster mushroom",
-          "calories": 33
-        },
-        {
-          "name": "Chanterelle",
-          "calories": 38
-        },
-        {
-          "name": "Porcini (cep)",
-          "calories": 25
-        },
-        {
-          "name": "Enoki mushroom",
-          "calories": 37
-        },
-        {
-          "name": "King oyster mushroom",
-          "calories": 35
-        },
-        {
-          "name": "Morel mushroom",
-          "calories": 31
-        },
-        {
-          "name": "Truffle, black",
-          "calories": 92
-        }
+        { "name": "Button mushroom (white)", "calories": 22, "protein": 3 },
+        { "name": "Portobello mushroom", "calories": 26, "protein": 2 },
+        { "name": "Shiitake mushroom", "calories": 34, "protein": 2 },
+        { "name": "Oyster mushroom", "calories": 33, "protein": 3 },
+        { "name": "Chanterelle", "calories": 38, "protein": 2 },
+        { "name": "Porcini (cep)", "calories": 25, "protein": 4 },
+        { "name": "Enoki mushroom", "calories": 37, "protein": 3 },
+        { "name": "King oyster mushroom", "calories": 35, "protein": 3 },
+        { "name": "Morel mushroom", "calories": 31, "protein": 3 },
+        { "name": "Truffle, black", "calories": 92, "protein": 9 }
       ]
     },
     "fruits": {
       "citrus": [
-        {
-          "name": "Orange",
-          "calories": 47
-        },
-        {
-          "name": "Lemon",
-          "calories": 29
-        },
-        {
-          "name": "Lime",
-          "calories": 30
-        },
-        {
-          "name": "Grapefruit",
-          "calories": 42
-        },
-        {
-          "name": "Mandarin / Clementine",
-          "calories": 53
-        },
-        {
-          "name": "Pomelo",
-          "calories": 38
-        },
-        {
-          "name": "Blood orange",
-          "calories": 50
-        },
-        {
-          "name": "Yuzu",
-          "calories": 53
-        }
+        { "name": "Orange", "calories": 47, "protein": 1 },
+        { "name": "Lemon", "calories": 29, "protein": 1 },
+        { "name": "Lime", "calories": 30, "protein": 1 },
+        { "name": "Grapefruit", "calories": 42, "protein": 1 },
+        { "name": "Mandarin / Clementine", "calories": 53, "protein": 1 },
+        { "name": "Pomelo", "calories": 38, "protein": 1 },
+        { "name": "Blood orange", "calories": 50, "protein": 1 },
+        { "name": "Yuzu", "calories": 53, "protein": 1 }
       ],
       "berries": [
-        {
-          "name": "Strawberry",
-          "calories": 32
-        },
-        {
-          "name": "Blueberry",
-          "calories": 57
-        },
-        {
-          "name": "Raspberry",
-          "calories": 52
-        },
-        {
-          "name": "Blackberry",
-          "calories": 43
-        },
-        {
-          "name": "Cranberry",
-          "calories": 46
-        },
-        {
-          "name": "Gooseberry",
-          "calories": 44
-        },
-        {
-          "name": "Currant, black",
-          "calories": 63
-        },
-        {
-          "name": "Currant, red",
-          "calories": 56
-        },
-        {
-          "name": "Elderberry",
-          "calories": 73
-        },
-        {
-          "name": "Mulberry",
-          "calories": 43
-        },
-        {
-          "name": "Boysenberry",
-          "calories": 50
-        },
-        {
-          "name": "Goji berry",
-          "calories": 349
-        },
-        {
-          "name": "Açaí berry (raw pulp)",
-          "calories": 70
-        }
+        { "name": "Strawberry", "calories": 32, "protein": 1 },
+        { "name": "Blueberry", "calories": 57, "protein": 1 },
+        { "name": "Raspberry", "calories": 52, "protein": 1 },
+        { "name": "Blackberry", "calories": 43, "protein": 1 },
+        { "name": "Cranberry", "calories": 46, "protein": 0 },
+        { "name": "Gooseberry", "calories": 44, "protein": 1 },
+        { "name": "Currant, black", "calories": 63, "protein": 1 },
+        { "name": "Currant, red", "calories": 56, "protein": 1 },
+        { "name": "Elderberry", "calories": 73, "protein": 1 },
+        { "name": "Mulberry", "calories": 43, "protein": 1 },
+        { "name": "Boysenberry", "calories": 50, "protein": 1 },
+        { "name": "Goji berry", "calories": 349, "protein": 14 },
+        { "name": "Açaí berry (raw pulp)", "calories": 70, "protein": 2 }
       ],
       "stone_fruits": [
-        {
-          "name": "Apple",
-          "calories": 52
-        },
-        {
-          "name": "Pear",
-          "calories": 57
-        },
-        {
-          "name": "Peach",
-          "calories": 39
-        },
-        {
-          "name": "Nectarine",
-          "calories": 44
-        },
-        {
-          "name": "Apricot",
-          "calories": 48
-        },
-        {
-          "name": "Plum",
-          "calories": 46
-        },
-        {
-          "name": "Cherry, sweet",
-          "calories": 63
-        },
-        {
-          "name": "Cherry, sour",
-          "calories": 50
-        }
+        { "name": "Apple", "calories": 52, "protein": 0 },
+        { "name": "Pear", "calories": 57, "protein": 0 },
+        { "name": "Peach", "calories": 39, "protein": 1 },
+        { "name": "Nectarine", "calories": 44, "protein": 1 },
+        { "name": "Apricot", "calories": 48, "protein": 1 },
+        { "name": "Plum", "calories": 46, "protein": 1 },
+        { "name": "Cherry, sweet", "calories": 63, "protein": 1 },
+        { "name": "Cherry, sour", "calories": 50, "protein": 1 }
       ],
       "tropical": [
-        {
-          "name": "Banana",
-          "calories": 89
-        },
-        {
-          "name": "Mango",
-          "calories": 60
-        },
-        {
-          "name": "Pineapple",
-          "calories": 50
-        },
-        {
-          "name": "Papaya",
-          "calories": 43
-        },
-        {
-          "name": "Guava",
-          "calories": 68
-        },
-        {
-          "name": "Passion fruit",
-          "calories": 97
-        },
-        {
-          "name": "Kiwi",
-          "calories": 61
-        },
-        {
-          "name": "Lychee",
-          "calories": 66
-        },
-        {
-          "name": "Jackfruit",
-          "calories": 95
-        },
-        {
-          "name": "Dragon fruit (pitaya)",
-          "calories": 60
-        },
-        {
-          "name": "Durian",
-          "calories": 147
-        },
-        {
-          "name": "Rambutan",
-          "calories": 82
-        },
-        {
-          "name": "Starfruit (carambola)",
-          "calories": 31
-        },
-        {
-          "name": "Longan",
-          "calories": 60
-        }
+        { "name": "Banana", "calories": 89, "protein": 1 },
+        { "name": "Mango", "calories": 60, "protein": 1 },
+        { "name": "Pineapple", "calories": 50, "protein": 1 },
+        { "name": "Papaya", "calories": 43, "protein": 1 },
+        { "name": "Guava", "calories": 68, "protein": 3 },
+        { "name": "Passion fruit", "calories": 97, "protein": 2 },
+        { "name": "Kiwi", "calories": 61, "protein": 1 },
+        { "name": "Lychee", "calories": 66, "protein": 1 },
+        { "name": "Jackfruit", "calories": 95, "protein": 2 },
+        { "name": "Dragon fruit (pitaya)", "calories": 60, "protein": 1 },
+        { "name": "Durian", "calories": 147, "protein": 2 },
+        { "name": "Rambutan", "calories": 82, "protein": 1 },
+        { "name": "Starfruit (carambola)", "calories": 31, "protein": 1 },
+        { "name": "Longan", "calories": 60, "protein": 1 }
       ],
       "melons": [
-        {
-          "name": "Watermelon",
-          "calories": 30
-        },
-        {
-          "name": "Cantaloupe (muskmelon)",
-          "calories": 34
-        },
-        {
-          "name": "Honeydew melon",
-          "calories": 36
-        }
+        { "name": "Watermelon", "calories": 30, "protein": 1 },
+        { "name": "Cantaloupe (muskmelon)", "calories": 34, "protein": 1 },
+        { "name": "Honeydew melon", "calories": 36, "protein": 1 }
       ],
       "dried_fruits": [
-        {
-          "name": "Raisins",
-          "calories": 299
-        },
-        {
-          "name": "Dates, medjool",
-          "calories": 277
-        },
-        {
-          "name": "Prunes (dried plum)",
-          "calories": 240
-        },
-        {
-          "name": "Apricot, dried",
-          "calories": 241
-        },
-        {
-          "name": "Fig, dried",
-          "calories": 249
-        },
-        {
-          "name": "Cranberry, dried",
-          "calories": 308
-        },
-        {
-          "name": "Mango, dried",
-          "calories": 314
-        }
+        { "name": "Raisins", "calories": 299, "protein": 3 },
+        { "name": "Dates, medjool", "calories": 277, "protein": 2 },
+        { "name": "Prunes (dried plum)", "calories": 240, "protein": 2 },
+        { "name": "Apricot, dried", "calories": 241, "protein": 3 },
+        { "name": "Fig, dried", "calories": 249, "protein": 3 },
+        { "name": "Cranberry, dried", "calories": 308, "protein": 0 },
+        { "name": "Mango, dried", "calories": 314, "protein": 3 }
       ],
       "other_fruits": [
-        {
-          "name": "Grape, green",
-          "calories": 69
-        },
-        {
-          "name": "Grape, red",
-          "calories": 70
-        },
-        {
-          "name": "Fig, fresh",
-          "calories": 74
-        },
-        {
-          "name": "Pomegranate",
-          "calories": 83
-        },
-        {
-          "name": "Persimmon",
-          "calories": 70
-        },
-        {
-          "name": "Quince",
-          "calories": 57
-        }
+        { "name": "Grape, green", "calories": 69, "protein": 1 },
+        { "name": "Grape, red", "calories": 70, "protein": 1 },
+        { "name": "Fig, fresh", "calories": 74, "protein": 1 },
+        { "name": "Pomegranate", "calories": 83, "protein": 2 },
+        { "name": "Persimmon", "calories": 70, "protein": 1 },
+        { "name": "Quince", "calories": 57, "protein": 0 }
       ]
     },
     "grains_and_cereals": {
       "rice": [
-        {
-          "name": "Rice, white (raw)",
-          "calories": 365
-        },
-        {
-          "name": "Rice, brown (raw)",
-          "calories": 370
-        },
-        {
-          "name": "Rice, basmati (raw)",
-          "calories": 356
-        },
-        {
-          "name": "Rice, jasmine (raw)",
-          "calories": 362
-        },
-        {
-          "name": "Rice, wild (raw)",
-          "calories": 357
-        },
-        {
-          "name": "Rice, arborio (raw)",
-          "calories": 350
-        }
+        { "name": "Rice, white (raw)", "calories": 365, "protein": 7 },
+        { "name": "Rice, brown (raw)", "calories": 370, "protein": 8 },
+        { "name": "Rice, basmati (raw)", "calories": 356, "protein": 8 },
+        { "name": "Rice, jasmine (raw)", "calories": 362, "protein": 7 },
+        { "name": "Rice, wild (raw)", "calories": 357, "protein": 15 },
+        { "name": "Rice, arborio (raw)", "calories": 350, "protein": 6 }
       ],
       "wheat_and_flour": [
-        {
-          "name": "Wheat flour, all-purpose",
-          "calories": 364
-        },
-        {
-          "name": "Wheat flour, whole wheat",
-          "calories": 340
-        },
-        {
-          "name": "Wheat flour, bread flour",
-          "calories": 361
-        },
-        {
-          "name": "Wheat, whole grain (raw)",
-          "calories": 339
-        },
-        {
-          "name": "Semolina",
-          "calories": 360
-        },
-        {
-          "name": "Bulgur wheat (raw)",
-          "calories": 342
-        },
-        {
-          "name": "Couscous (raw)",
-          "calories": 376
-        },
-        {
-          "name": "Farro (raw)",
-          "calories": 340
-        },
-        {
-          "name": "Spelt (raw)",
-          "calories": 338
-        },
-        {
-          "name": "Kamut (raw)",
-          "calories": 337
-        }
+        { "name": "Wheat flour, all-purpose", "calories": 364, "protein": 10 },
+        { "name": "Wheat flour, whole wheat", "calories": 340, "protein": 13 },
+        { "name": "Wheat flour, bread flour", "calories": 361, "protein": 12 },
+        { "name": "Wheat, whole grain (raw)", "calories": 339, "protein": 14 },
+        { "name": "Semolina", "calories": 360, "protein": 12 },
+        { "name": "Bulgur wheat (raw)", "calories": 342, "protein": 12 },
+        { "name": "Couscous (raw)", "calories": 376, "protein": 13 },
+        { "name": "Farro (raw)", "calories": 340, "protein": 15 },
+        { "name": "Spelt (raw)", "calories": 338, "protein": 15 },
+        { "name": "Kamut (raw)", "calories": 337, "protein": 14 }
       ],
       "other_grains": [
-        {
-          "name": "Oats, rolled (raw)",
-          "calories": 389
-        },
-        {
-          "name": "Oat bran",
-          "calories": 246
-        },
-        {
-          "name": "Barley, pearled (raw)",
-          "calories": 352
-        },
-        {
-          "name": "Rye (raw)",
-          "calories": 338
-        },
-        {
-          "name": "Corn / Maize (raw)",
-          "calories": 365
-        },
-        {
-          "name": "Cornmeal / Polenta (raw)",
-          "calories": 362
-        },
-        {
-          "name": "Millet (raw)",
-          "calories": 378
-        },
-        {
-          "name": "Sorghum (raw)",
-          "calories": 329
-        },
-        {
-          "name": "Buckwheat (raw)",
-          "calories": 343
-        },
-        {
-          "name": "Quinoa (raw)",
-          "calories": 368
-        },
-        {
-          "name": "Amaranth (raw)",
-          "calories": 371
-        },
-        {
-          "name": "Teff (raw)",
-          "calories": 367
-        },
-        {
-          "name": "Cereal, dry (generic)",
-          "calories": 450
-        }
+        { "name": "Oats, rolled (raw)", "calories": 389, "protein": 17 },
+        { "name": "Oat bran", "calories": 246, "protein": 17 },
+        { "name": "Barley, pearled (raw)", "calories": 352, "protein": 12 },
+        { "name": "Rye (raw)", "calories": 338, "protein": 14 },
+        { "name": "Corn / Maize (raw)", "calories": 365, "protein": 9 },
+        { "name": "Cornmeal / Polenta (raw)", "calories": 362, "protein": 8 },
+        { "name": "Millet (raw)", "calories": 378, "protein": 11 },
+        { "name": "Sorghum (raw)", "calories": 329, "protein": 11 },
+        { "name": "Buckwheat (raw)", "calories": 343, "protein": 13 },
+        { "name": "Quinoa (raw)", "calories": 368, "protein": 14 },
+        { "name": "Amaranth (raw)", "calories": 371, "protein": 14 },
+        { "name": "Teff (raw)", "calories": 367, "protein": 13 },
+        { "name": "Cereal, dry (generic)", "calories": 450, "protein": 8 }
       ],
       "pasta": [
-        {
-          "name": "Pasta, white (raw, dry)",
-          "calories": 371
-        },
-        {
-          "name": "Pasta, whole wheat (raw, dry)",
-          "calories": 348
-        },
-        {
-          "name": "Egg noodles (raw, dry)",
-          "calories": 384
-        },
-        {
-          "name": "Rice noodles (raw, dry)",
-          "calories": 364
-        },
-        {
-          "name": "Glass noodles / mung bean (dry)",
-          "calories": 351
-        }
+        { "name": "Pasta, white (raw, dry)", "calories": 371, "protein": 12 },
+        { "name": "Pasta, whole wheat (raw, dry)", "calories": 348, "protein": 14 },
+        { "name": "Egg noodles (raw, dry)", "calories": 384, "protein": 14 },
+        { "name": "Rice noodles (raw, dry)", "calories": 364, "protein": 7 },
+        { "name": "Glass noodles / mung bean (dry)", "calories": 351, "protein": 0 }
       ],
       "bread_and_baked": [
-        {
-          "name": "Bread, white",
-          "calories": 265
-        },
-        {
-          "name": "Bread, whole wheat",
-          "calories": 247
-        },
-        {
-          "name": "Bread, rye",
-          "calories": 259
-        },
-        {
-          "name": "Bread, sourdough",
-          "calories": 274
-        },
-        {
-          "name": "Baguette",
-          "calories": 276
-        },
-        {
-          "name": "Pita bread",
-          "calories": 275
-        },
-        {
-          "name": "Tortilla, flour",
-          "calories": 306
-        },
-        {
-          "name": "Tortilla, corn",
-          "calories": 237
-        },
-        {
-          "name": "Breadcrumbs, plain",
-          "calories": 395
-        },
-        {
-          "name": "Cracker, water",
-          "calories": 402
-        }
+        { "name": "Bread, white", "calories": 265, "protein": 9 },
+        { "name": "Bread, whole wheat", "calories": 247, "protein": 9 },
+        { "name": "Bread, rye", "calories": 259, "protein": 9 },
+        { "name": "Bread, sourdough", "calories": 274, "protein": 9 },
+        { "name": "Baguette", "calories": 276, "protein": 9 },
+        { "name": "Pita bread", "calories": 275, "protein": 9 },
+        { "name": "Tortilla, flour", "calories": 306, "protein": 8 },
+        { "name": "Tortilla, corn", "calories": 237, "protein": 5 },
+        { "name": "Breadcrumbs, plain", "calories": 395, "protein": 12 },
+        { "name": "Cracker, water", "calories": 402, "protein": 9 }
       ]
     },
     "legumes": [
-      {
-        "name": "Lentils, green (raw)",
-        "calories": 352
-      },
-      {
-        "name": "Lentils, red (raw)",
-        "calories": 358
-      },
-      {
-        "name": "Chickpeas (raw)",
-        "calories": 378
-      },
-      {
-        "name": "Black beans (raw)",
-        "calories": 341
-      },
-      {
-        "name": "Kidney beans, red (raw)",
-        "calories": 333
-      },
-      {
-        "name": "White beans / cannellini (raw)",
-        "calories": 337
-      },
-      {
-        "name": "Pinto beans (raw)",
-        "calories": 347
-      },
-      {
-        "name": "Soybeans (raw)",
-        "calories": 446
-      },
-      {
-        "name": "Edamame (raw)",
-        "calories": 122
-      },
-      {
-        "name": "Green peas (raw)",
-        "calories": 81
-      },
-      {
-        "name": "Split peas (raw)",
-        "calories": 341
-      },
-      {
-        "name": "Mung beans (raw)",
-        "calories": 347
-      },
-      {
-        "name": "Adzuki beans (raw)",
-        "calories": 329
-      },
-      {
-        "name": "Fava beans / broad beans (raw)",
-        "calories": 341
-      },
-      {
-        "name": "Black-eyed peas (raw)",
-        "calories": 336
-      },
-      {
-        "name": "Lima beans (raw)",
-        "calories": 338
-      }
+      { "name": "Lentils, green (raw)", "calories": 352, "protein": 24 },
+      { "name": "Lentils, red (raw)", "calories": 358, "protein": 25 },
+      { "name": "Chickpeas (raw)", "calories": 378, "protein": 19 },
+      { "name": "Black beans (raw)", "calories": 341, "protein": 22 },
+      { "name": "Kidney beans, red (raw)", "calories": 333, "protein": 23 },
+      { "name": "White beans / cannellini (raw)", "calories": 337, "protein": 24 },
+      { "name": "Pinto beans (raw)", "calories": 347, "protein": 22 },
+      { "name": "Soybeans (raw)", "calories": 446, "protein": 36 },
+      { "name": "Edamame (raw)", "calories": 122, "protein": 11 },
+      { "name": "Green peas (raw)", "calories": 81, "protein": 5 },
+      { "name": "Split peas (raw)", "calories": 341, "protein": 25 },
+      { "name": "Mung beans (raw)", "calories": 347, "protein": 24 },
+      { "name": "Adzuki beans (raw)", "calories": 329, "protein": 20 },
+      { "name": "Fava beans / broad beans (raw)", "calories": 341, "protein": 26 },
+      { "name": "Black-eyed peas (raw)", "calories": 336, "protein": 24 },
+      { "name": "Lima beans (raw)", "calories": 338, "protein": 21 }
     ],
     "nuts_and_seeds": {
       "nuts": [
-        {
-          "name": "Almonds",
-          "calories": 579
-        },
-        {
-          "name": "Walnuts",
-          "calories": 654
-        },
-        {
-          "name": "Cashews",
-          "calories": 553
-        },
-        {
-          "name": "Pistachios",
-          "calories": 562
-        },
-        {
-          "name": "Macadamia nuts",
-          "calories": 718
-        },
-        {
-          "name": "Brazil nuts",
-          "calories": 659
-        },
-        {
-          "name": "Hazelnuts",
-          "calories": 628
-        },
-        {
-          "name": "Pecans",
-          "calories": 691
-        },
-        {
-          "name": "Pine nuts",
-          "calories": 673
-        },
-        {
-          "name": "Peanuts (raw)",
-          "calories": 567
-        },
-        {
-          "name": "Chestnuts",
-          "calories": 245
-        },
-        {
-          "name": "Coconut meat (raw)",
-          "calories": 354
-        },
-        {
-          "name": "Coconut, desiccated",
-          "calories": 660
-        }
+        { "name": "Almonds", "calories": 579, "protein": 21 },
+        { "name": "Walnuts", "calories": 654, "protein": 15 },
+        { "name": "Cashews", "calories": 553, "protein": 18 },
+        { "name": "Pistachios", "calories": 562, "protein": 20 },
+        { "name": "Macadamia nuts", "calories": 718, "protein": 8 },
+        { "name": "Brazil nuts", "calories": 659, "protein": 14 },
+        { "name": "Hazelnuts", "calories": 628, "protein": 15 },
+        { "name": "Pecans", "calories": 691, "protein": 9 },
+        { "name": "Pine nuts", "calories": 673, "protein": 14 },
+        { "name": "Peanuts (raw)", "calories": 567, "protein": 26 },
+        { "name": "Chestnuts", "calories": 245, "protein": 3 },
+        { "name": "Coconut meat (raw)", "calories": 354, "protein": 3 },
+        { "name": "Coconut, desiccated", "calories": 660, "protein": 7 }
       ],
       "seeds": [
-        {
-          "name": "Sunflower seeds",
-          "calories": 584
-        },
-        {
-          "name": "Pumpkin seeds",
-          "calories": 559
-        },
-        {
-          "name": "Sesame seeds",
-          "calories": 573
-        },
-        {
-          "name": "Flaxseed (linseed)",
-          "calories": 534
-        },
-        {
-          "name": "Chia seeds",
-          "calories": 486
-        },
-        {
-          "name": "Hemp seeds",
-          "calories": 553
-        },
-        {
-          "name": "Poppy seeds",
-          "calories": 525
-        },
-        {
-          "name": "Caraway seeds",
-          "calories": 333
-        },
-        {
-          "name": "Cumin seeds",
-          "calories": 375
-        },
-        {
-          "name": "Fennel seeds",
-          "calories": 345
-        },
-        {
-          "name": "Coriander seeds",
-          "calories": 298
-        }
+        { "name": "Sunflower seeds", "calories": 584, "protein": 21 },
+        { "name": "Pumpkin seeds", "calories": 559, "protein": 30 },
+        { "name": "Sesame seeds", "calories": 573, "protein": 18 },
+        { "name": "Flaxseed (linseed)", "calories": 534, "protein": 18 },
+        { "name": "Chia seeds", "calories": 486, "protein": 17 },
+        { "name": "Hemp seeds", "calories": 553, "protein": 32 },
+        { "name": "Poppy seeds", "calories": 525, "protein": 18 },
+        { "name": "Caraway seeds", "calories": 333, "protein": 20 },
+        { "name": "Cumin seeds", "calories": 375, "protein": 18 },
+        { "name": "Fennel seeds", "calories": 345, "protein": 16 },
+        { "name": "Coriander seeds", "calories": 298, "protein": 13 }
       ],
       "nut_and_seed_butters": [
-        {
-          "name": "Peanut butter",
-          "calories": 588
-        },
-        {
-          "name": "Almond butter",
-          "calories": 614
-        },
-        {
-          "name": "Tahini (sesame paste)",
-          "calories": 595
-        },
-        {
-          "name": "Cashew butter",
-          "calories": 587
-        },
-        {
-          "name": "Sunflower seed butter",
-          "calories": 617
-        }
+        { "name": "Peanut butter", "calories": 588, "protein": 25 },
+        { "name": "Almond butter", "calories": 614, "protein": 21 },
+        { "name": "Tahini (sesame paste)", "calories": 595, "protein": 17 },
+        { "name": "Cashew butter", "calories": 587, "protein": 18 },
+        { "name": "Sunflower seed butter", "calories": 617, "protein": 18 }
       ]
     },
     "oils_and_fats": [
-      {
-        "name": "Olive oil, extra virgin",
-        "calories": 884
-      },
-      {
-        "name": "Sunflower oil",
-        "calories": 884
-      },
-      {
-        "name": "Canola (rapeseed) oil",
-        "calories": 884
-      },
-      {
-        "name": "Coconut oil",
-        "calories": 892
-      },
-      {
-        "name": "Avocado oil",
-        "calories": 884
-      },
-      {
-        "name": "Vegetable oil (generic)",
-        "calories": 884
-      },
-      {
-        "name": "Corn oil",
-        "calories": 884
-      },
-      {
-        "name": "Sesame oil",
-        "calories": 884
-      },
-      {
-        "name": "Flaxseed oil",
-        "calories": 884
-      },
-      {
-        "name": "Walnut oil",
-        "calories": 884
-      },
-      {
-        "name": "Pumpkin seed oil",
-        "calories": 884
-      },
-      {
-        "name": "MCT oil",
-        "calories": 760
-      }
+      { "name": "Olive oil, extra virgin", "calories": 884, "protein": 0 },
+      { "name": "Sunflower oil", "calories": 884, "protein": 0 },
+      { "name": "Canola (rapeseed) oil", "calories": 884, "protein": 0 },
+      { "name": "Coconut oil", "calories": 892, "protein": 0 },
+      { "name": "Avocado oil", "calories": 884, "protein": 0 },
+      { "name": "Vegetable oil (generic)", "calories": 884, "protein": 0 },
+      { "name": "Corn oil", "calories": 884, "protein": 0 },
+      { "name": "Sesame oil", "calories": 884, "protein": 0 },
+      { "name": "Flaxseed oil", "calories": 884, "protein": 0 },
+      { "name": "Walnut oil", "calories": 884, "protein": 0 },
+      { "name": "Pumpkin seed oil", "calories": 884, "protein": 0 },
+      { "name": "MCT oil", "calories": 760, "protein": 0 }
     ],
     "soy_products": [
-      {
-        "name": "Tofu, firm",
-        "calories": 76
-      },
-      {
-        "name": "Tofu, silken",
-        "calories": 55
-      },
-      {
-        "name": "Tempeh",
-        "calories": 192
-      },
-      {
-        "name": "Miso paste",
-        "calories": 199
-      },
-      {
-        "name": "Natto",
-        "calories": 211
-      },
-      {
-        "name": "Soy sauce",
-        "calories": 53
-      },
-      {
-        "name": "Tamari",
-        "calories": 60
-      },
-      {
-        "name": "Soy protein isolate",
-        "calories": 338
-      }
+      { "name": "Tofu, firm", "calories": 76, "protein": 8 },
+      { "name": "Tofu, silken", "calories": 55, "protein": 5 },
+      { "name": "Tempeh", "calories": 192, "protein": 19 },
+      { "name": "Miso paste", "calories": 199, "protein": 12 },
+      { "name": "Natto", "calories": 211, "protein": 18 },
+      { "name": "Soy sauce", "calories": 53, "protein": 6 },
+      { "name": "Tamari", "calories": 60, "protein": 9 },
+      { "name": "Soy protein isolate", "calories": 338, "protein": 80 }
     ],
     "herbs_and_spices": [
-      {
-        "name": "Basil (fresh)",
-        "calories": 22
-      },
-      {
-        "name": "Parsley (fresh)",
-        "calories": 36
-      },
-      {
-        "name": "Cilantro / Coriander (fresh)",
-        "calories": 23
-      },
-      {
-        "name": "Mint (fresh)",
-        "calories": 70
-      },
-      {
-        "name": "Dill (fresh)",
-        "calories": 43
-      },
-      {
-        "name": "Rosemary (fresh)",
-        "calories": 131
-      },
-      {
-        "name": "Thyme (fresh)",
-        "calories": 101
-      },
-      {
-        "name": "Oregano (dried)",
-        "calories": 265
-      },
-      {
-        "name": "Paprika (dried)",
-        "calories": 282
-      },
-      {
-        "name": "Cayenne pepper (dried)",
-        "calories": 318
-      },
-      {
-        "name": "Black pepper (dried)",
-        "calories": 251
-      },
-      {
-        "name": "Cinnamon (ground)",
-        "calories": 247
-      },
-      {
-        "name": "Nutmeg (ground)",
-        "calories": 525
-      },
-      {
-        "name": "Cloves (ground)",
-        "calories": 274
-      },
-      {
-        "name": "Cardamom (ground)",
-        "calories": 311
-      },
-      {
-        "name": "Turmeric (ground)",
-        "calories": 354
-      },
-      {
-        "name": "Ginger (ground)",
-        "calories": 335
-      },
-      {
-        "name": "Garlic powder",
-        "calories": 331
-      },
-      {
-        "name": "Onion powder",
-        "calories": 341
-      },
-      {
-        "name": "Chili powder",
-        "calories": 282
-      },
-      {
-        "name": "Curry powder",
-        "calories": 325
-      },
-      {
-        "name": "Cumin (ground)",
-        "calories": 375
-      },
-      {
-        "name": "Fenugreek (ground)",
-        "calories": 323
-      },
-      {
-        "name": "Saffron",
-        "calories": 310
-      },
-      {
-        "name": "Star anise",
-        "calories": 337
-      },
-      {
-        "name": "Bay leaf (dried)",
-        "calories": 313
-      },
-      {
-        "name": "Sage (dried)",
-        "calories": 315
-      },
-      {
-        "name": "Marjoram (dried)",
-        "calories": 271
-      },
-      {
-        "name": "Sumac",
-        "calories": 279
-      },
-      {
-        "name": "Za'atar blend",
-        "calories": 296
-      }
+      { "name": "Basil (fresh)", "calories": 22, "protein": 3 },
+      { "name": "Parsley (fresh)", "calories": 36, "protein": 3 },
+      { "name": "Cilantro / Coriander (fresh)", "calories": 23, "protein": 2 },
+      { "name": "Mint (fresh)", "calories": 70, "protein": 3 },
+      { "name": "Dill (fresh)", "calories": 43, "protein": 4 },
+      { "name": "Rosemary (fresh)", "calories": 131, "protein": 3 },
+      { "name": "Thyme (fresh)", "calories": 101, "protein": 6 },
+      { "name": "Oregano (dried)", "calories": 265, "protein": 9 },
+      { "name": "Paprika (dried)", "calories": 282, "protein": 14 },
+      { "name": "Cayenne pepper (dried)", "calories": 318, "protein": 12 },
+      { "name": "Black pepper (dried)", "calories": 251, "protein": 10 },
+      { "name": "Cinnamon (ground)", "calories": 247, "protein": 4 },
+      { "name": "Nutmeg (ground)", "calories": 525, "protein": 6 },
+      { "name": "Cloves (ground)", "calories": 274, "protein": 6 },
+      { "name": "Cardamom (ground)", "calories": 311, "protein": 11 },
+      { "name": "Turmeric (ground)", "calories": 354, "protein": 8 },
+      { "name": "Ginger (ground)", "calories": 335, "protein": 9 },
+      { "name": "Garlic powder", "calories": 331, "protein": 17 },
+      { "name": "Onion powder", "calories": 341, "protein": 10 },
+      { "name": "Chili powder", "calories": 282, "protein": 12 },
+      { "name": "Curry powder", "calories": 325, "protein": 13 },
+      { "name": "Cumin (ground)", "calories": 375, "protein": 18 },
+      { "name": "Fenugreek (ground)", "calories": 323, "protein": 23 },
+      { "name": "Saffron", "calories": 310, "protein": 11 },
+      { "name": "Star anise", "calories": 337, "protein": 18 },
+      { "name": "Bay leaf (dried)", "calories": 313, "protein": 8 },
+      { "name": "Sage (dried)", "calories": 315, "protein": 11 },
+      { "name": "Marjoram (dried)", "calories": 271, "protein": 12 },
+      { "name": "Sumac", "calories": 279, "protein": 3 },
+      { "name": "Za'atar blend", "calories": 296, "protein": 8 }
     ],
     "condiments_and_sauces": [
-      {
-        "name": "Ketchup",
-        "calories": 101
-      },
-      {
-        "name": "Mustard, yellow",
-        "calories": 60
-      },
-      {
-        "name": "Mustard, Dijon",
-        "calories": 66
-      },
-      {
-        "name": "Mayonnaise, full fat",
-        "calories": 680
-      },
-      {
-        "name": "Mayonnaise, light",
-        "calories": 310
-      },
-      {
-        "name": "Worcestershire sauce",
-        "calories": 78
-      },
-      {
-        "name": "Tabasco",
-        "calories": 12
-      },
-      {
-        "name": "Sriracha",
-        "calories": 93
-      },
-      {
-        "name": "Oyster sauce",
-        "calories": 51
-      },
-      {
-        "name": "Fish sauce",
-        "calories": 35
-      },
-      {
-        "name": "Hoisin sauce",
-        "calories": 220
-      },
-      {
-        "name": "Teriyaki sauce",
-        "calories": 89
-      },
-      {
-        "name": "Balsamic vinegar",
-        "calories": 88
-      },
-      {
-        "name": "Apple cider vinegar",
-        "calories": 21
-      },
-      {
-        "name": "White wine vinegar",
-        "calories": 18
-      },
-      {
-        "name": "Honey",
-        "calories": 304
-      },
-      {
-        "name": "Maple syrup",
-        "calories": 260
-      },
-      {
-        "name": "Tomato paste",
-        "calories": 82
-      },
-      {
-        "name": "Tomato purée",
-        "calories": 38
-      },
-      {
-        "name": "Hummus",
-        "calories": 166
-      },
-      {
-        "name": "Tzatziki",
-        "calories": 66
-      },
-      {
-        "name": "Pesto (basil)",
-        "calories": 406
-      },
-      {
-        "name": "Ranch dressing",
-        "calories": 140
-      }
+      { "name": "Ketchup", "calories": 101, "protein": 2 },
+      { "name": "Mustard, yellow", "calories": 60, "protein": 4 },
+      { "name": "Mustard, Dijon", "calories": 66, "protein": 4 },
+      { "name": "Mayonnaise, full fat", "calories": 680, "protein": 1 },
+      { "name": "Mayonnaise, light", "calories": 310, "protein": 1 },
+      { "name": "Worcestershire sauce", "calories": 78, "protein": 1 },
+      { "name": "Tabasco", "calories": 12, "protein": 1 },
+      { "name": "Sriracha", "calories": 93, "protein": 2 },
+      { "name": "Oyster sauce", "calories": 51, "protein": 1 },
+      { "name": "Fish sauce", "calories": 35, "protein": 4 },
+      { "name": "Hoisin sauce", "calories": 220, "protein": 4 },
+      { "name": "Teriyaki sauce", "calories": 89, "protein": 3 },
+      { "name": "Balsamic vinegar", "calories": 88, "protein": 1 },
+      { "name": "Apple cider vinegar", "calories": 21, "protein": 0 },
+      { "name": "White wine vinegar", "calories": 18, "protein": 0 },
+      { "name": "Honey", "calories": 304, "protein": 0 },
+      { "name": "Maple syrup", "calories": 260, "protein": 0 },
+      { "name": "Tomato paste", "calories": 82, "protein": 4 },
+      { "name": "Tomato purée", "calories": 38, "protein": 2 },
+      { "name": "Hummus", "calories": 166, "protein": 8 },
+      { "name": "Tzatziki", "calories": 66, "protein": 4 },
+      { "name": "Pesto (basil)", "calories": 406, "protein": 6 },
+      { "name": "Ranch dressing", "calories": 140, "protein": 1 }
     ],
     "sweeteners_and_sugars": [
-      {
-        "name": "Sugar, white granulated",
-        "calories": 387
-      },
-      {
-        "name": "Sugar, brown",
-        "calories": 380
-      },
-      {
-        "name": "Sugar, powdered (icing)",
-        "calories": 389
-      },
-      {
-        "name": "Sugar, raw (turbinado)",
-        "calories": 380
-      },
-      {
-        "name": "Coconut sugar",
-        "calories": 375
-      },
-      {
-        "name": "Stevia (dried leaf)",
-        "calories": 0
-      },
-      {
-        "name": "Erythritol",
-        "calories": 20
-      },
-      {
-        "name": "Xylitol",
-        "calories": 240
-      },
-      {
-        "name": "Agave syrup",
-        "calories": 310
-      },
-      {
-        "name": "Molasses",
-        "calories": 290
-      },
-      {
-        "name": "Corn syrup",
-        "calories": 283
-      }
+      { "name": "Sugar, white granulated", "calories": 387, "protein": 0 },
+      { "name": "Sugar, brown", "calories": 380, "protein": 0 },
+      { "name": "Sugar, powdered (icing)", "calories": 389, "protein": 0 },
+      { "name": "Sugar, raw (turbinado)", "calories": 380, "protein": 0 },
+      { "name": "Coconut sugar", "calories": 375, "protein": 0 },
+      { "name": "Stevia (dried leaf)", "calories": 0, "protein": 0 },
+      { "name": "Erythritol", "calories": 20, "protein": 0 },
+      { "name": "Xylitol", "calories": 240, "protein": 0 },
+      { "name": "Agave syrup", "calories": 310, "protein": 0 },
+      { "name": "Molasses", "calories": 290, "protein": 0 },
+      { "name": "Corn syrup", "calories": 283, "protein": 0 }
     ],
     "beverages": {
       "non_alcoholic": [
-        {
-          "name": "Water",
-          "calories": 0
-        },
-        {
-          "name": "Coffee, black (brewed)",
-          "calories": 2
-        },
-        {
-          "name": "Espresso",
-          "calories": 9
-        },
-        {
-          "name": "Tea, black (brewed)",
-          "calories": 1
-        },
-        {
-          "name": "Tea, green (brewed)",
-          "calories": 1
-        },
-        {
-          "name": "Orange juice (fresh)",
-          "calories": 45
-        },
-        {
-          "name": "Apple juice",
-          "calories": 46
-        },
-        {
-          "name": "Coconut water",
-          "calories": 19
-        }
+        { "name": "Water", "calories": 0, "protein": 0 },
+        { "name": "Coffee, black (brewed)", "calories": 2, "protein": 0 },
+        { "name": "Espresso", "calories": 9, "protein": 0 },
+        { "name": "Tea, black (brewed)", "calories": 1, "protein": 0 },
+        { "name": "Tea, green (brewed)", "calories": 1, "protein": 0 },
+        { "name": "Orange juice (fresh)", "calories": 45, "protein": 1 },
+        { "name": "Apple juice", "calories": 46, "protein": 0 },
+        { "name": "Coconut water", "calories": 19, "protein": 1 }
       ],
       "alcoholic": [
-        {
-          "name": "Beer, lager (5%)",
-          "calories": 43
-        },
-        {
-          "name": "Beer, dark/stout (5%)",
-          "calories": 45
-        },
-        {
-          "name": "Wine, red (13%)",
-          "calories": 85
-        },
-        {
-          "name": "Wine, white dry (12%)",
-          "calories": 77
-        },
-        {
-          "name": "Wine, rosé (12%)",
-          "calories": 80
-        },
-        {
-          "name": "Champagne / Prosecco",
-          "calories": 76
-        },
-        {
-          "name": "Vodka (40%)",
-          "calories": 231
-        },
-        {
-          "name": "Whiskey (40%)",
-          "calories": 250
-        },
-        {
-          "name": "Rum (40%)",
-          "calories": 231
-        },
-        {
-          "name": "Gin (40%)",
-          "calories": 263
-        },
-        {
-          "name": "Tequila (40%)",
-          "calories": 231
-        }
+        { "name": "Beer, lager (5%)", "calories": 43, "protein": 0 },
+        { "name": "Beer, dark/stout (5%)", "calories": 45, "protein": 1 },
+        { "name": "Wine, red (13%)", "calories": 85, "protein": 0 },
+        { "name": "Wine, white dry (12%)", "calories": 77, "protein": 0 },
+        { "name": "Wine, rosé (12%)", "calories": 80, "protein": 0 },
+        { "name": "Champagne / Prosecco", "calories": 76, "protein": 0 },
+        { "name": "Vodka (40%)", "calories": 231, "protein": 0 },
+        { "name": "Whiskey (40%)", "calories": 250, "protein": 0 },
+        { "name": "Rum (40%)", "calories": 231, "protein": 0 },
+        { "name": "Gin (40%)", "calories": 263, "protein": 0 },
+        { "name": "Tequila (40%)", "calories": 231, "protein": 0 }
       ]
     },
     "cooked_foods": {
-      "note": "kcal per 100g of the prepared/cooked dish",
       "burgers_and_sandwiches": [
-        {
-          "name": "Cheeseburger (beef patty, bun, cheese, ketchup)",
-          "calories": 295
-        },
-        {
-          "name": "Double cheeseburger",
-          "calories": 330
-        },
-        {
-          "name": "Hamburger (plain, bun + patty)",
-          "calories": 265
-        },
-        {
-          "name": "Chicken burger (breaded)",
-          "calories": 270
-        },
-        {
-          "name": "Veggie burger",
-          "calories": 200
-        },
-        {
-          "name": "BLT sandwich",
-          "calories": 242
-        },
-        {
-          "name": "Club sandwich",
-          "calories": 230
-        },
-        {
-          "name": "Grilled cheese sandwich",
-          "calories": 290
-        },
-        {
-          "name": "Pulled pork sandwich",
-          "calories": 260
-        },
-        {
-          "name": "Philly cheesesteak",
-          "calories": 305
-        },
-        {
-          "name": "Egg & bacon breakfast sandwich",
-          "calories": 280
-        },
-        {
-          "name": "Hot dog (bun + sausage)",
-          "calories": 290
-        },
-        {
-          "name": "Kebab wrap (doner, pitta, salad)",
-          "calories": 230
-        }
+        { "name": "Cheeseburger (beef patty, bun, cheese, ketchup)", "calories": 295, "protein": 14 },
+        { "name": "Double cheeseburger", "calories": 330, "protein": 17 },
+        { "name": "Hamburger (plain, bun + patty)", "calories": 265, "protein": 12 },
+        { "name": "Chicken burger (breaded)", "calories": 270, "protein": 15 },
+        { "name": "Veggie burger", "calories": 200, "protein": 11 },
+        { "name": "BLT sandwich", "calories": 242, "protein": 11 },
+        { "name": "Club sandwich", "calories": 230, "protein": 14 },
+        { "name": "Grilled cheese sandwich", "calories": 290, "protein": 12 },
+        { "name": "Pulled pork sandwich", "calories": 260, "protein": 16 },
+        { "name": "Philly cheesesteak", "calories": 305, "protein": 16 },
+        { "name": "Egg & bacon breakfast sandwich", "calories": 280, "protein": 14 },
+        { "name": "Hot dog (bun + sausage)", "calories": 290, "protein": 10 },
+        { "name": "Kebab wrap (doner, pitta, salad)", "calories": 230, "protein": 12 }
       ],
       "pizza": [
-        {
-          "name": "Pizza Margherita (thin crust)",
-          "calories": 220
-        },
-        {
-          "name": "Pizza Margherita (thick crust)",
-          "calories": 266
-        },
-        {
-          "name": "Pizza Pepperoni",
-          "calories": 298
-        },
-        {
-          "name": "Pizza Quattro Formaggi",
-          "calories": 315
-        },
-        {
-          "name": "Pizza Hawaii (ham & pineapple)",
-          "calories": 245
-        },
-        {
-          "name": "Pizza Diavola (spicy salami)",
-          "calories": 290
-        },
-        {
-          "name": "Pizza BBQ Chicken",
-          "calories": 265
-        },
-        {
-          "name": "Pizza Calzone",
-          "calories": 280
-        },
-        {
-          "name": "Pizza, frozen (baked)",
-          "calories": 253
-        },
-        {
-          "name": "Neapolitan pizza (plain)",
-          "calories": 210
-        },
-        {
-          "name": "Mario Mushroom Pizza (wrap, mozzarella, tomato sauce)",
-          "calories": 225,
-          "notes": "Homemade: 60g flour tortilla wrap cut in mushroom shape, 90g mozzarella/grated cheese, 60g tomato sauce (30 kcal/100g). Total ~472 kcal / 210g."
-        }
+        { "name": "Pizza Margherita (thin crust)", "calories": 220, "protein": 9 },
+        { "name": "Pizza Margherita (thick crust)", "calories": 266, "protein": 10 },
+        { "name": "Pizza Pepperoni", "calories": 298, "protein": 13 },
+        { "name": "Pizza Quattro Formaggi", "calories": 315, "protein": 14 },
+        { "name": "Pizza Hawaii (ham & pineapple)", "calories": 245, "protein": 10 },
+        { "name": "Pizza Diavola (spicy salami)", "calories": 290, "protein": 12 },
+        { "name": "Pizza BBQ Chicken", "calories": 265, "protein": 14 },
+        { "name": "Pizza Calzone", "calories": 280, "protein": 12 },
+        { "name": "Pizza, frozen (baked)", "calories": 253, "protein": 11 },
+        { "name": "Neapolitan pizza (plain)", "calories": 210, "protein": 8 },
+        { "name": "Mario Mushroom Pizza (wrap, mozzarella, tomato sauce)", "calories": 225, "protein": 11 }
       ],
       "fries_and_sides": [
-        {
-          "name": "French fries (deep fried)",
-          "calories": 312
-        },
-        {
-          "name": "French fries (oven baked)",
-          "calories": 180
-        },
-        {
-          "name": "Sweet potato fries (fried)",
-          "calories": 260
-        },
-        {
-          "name": "Waffle fries",
-          "calories": 320
-        },
-        {
-          "name": "Potato wedges (oven)",
-          "calories": 195
-        },
-        {
-          "name": "Onion rings (battered, fried)",
-          "calories": 380
-        },
-        {
-          "name": "Mozzarella sticks (fried)",
-          "calories": 335
-        },
-        {
-          "name": "Nachos with cheese",
-          "calories": 380
-        },
-        {
-          "name": "Coleslaw (creamy)",
-          "calories": 152
-        },
-        {
-          "name": "Mac and cheese",
-          "calories": 170
-        },
-        {
-          "name": "Corn on the cob (boiled)",
-          "calories": 96
-        }
+        { "name": "French fries (deep fried)", "calories": 312, "protein": 3 },
+        { "name": "French fries (oven baked)", "calories": 180, "protein": 3 },
+        { "name": "Sweet potato fries (fried)", "calories": 260, "protein": 2 },
+        { "name": "Waffle fries", "calories": 320, "protein": 4 },
+        { "name": "Potato wedges (oven)", "calories": 195, "protein": 3 },
+        { "name": "Onion rings (battered, fried)", "calories": 380, "protein": 4 },
+        { "name": "Mozzarella sticks (fried)", "calories": 335, "protein": 14 },
+        { "name": "Nachos with cheese", "calories": 380, "protein": 8 },
+        { "name": "Coleslaw (creamy)", "calories": 152, "protein": 2 },
+        { "name": "Mac and cheese", "calories": 170, "protein": 7 },
+        { "name": "Corn on the cob (boiled)", "calories": 96, "protein": 3 }
       ],
       "potatoes_cooked": [
-        {
-          "name": "Boiled potato (plain)",
-          "calories": 87
-        },
-        {
-          "name": "Mashed potato (with butter & milk)",
-          "calories": 113
-        },
-        {
-          "name": "Baked potato (plain)",
-          "calories": 93
-        },
-        {
-          "name": "Loaded baked potato (sour cream, cheese, bacon)",
-          "calories": 190
-        },
-        {
-          "name": "Roasted potatoes (with oil)",
-          "calories": 149
-        },
-        {
-          "name": "Hash browns",
-          "calories": 265
-        },
-        {
-          "name": "Potato salad (mayo-based)",
-          "calories": 143
-        },
-        {
-          "name": "Gnocchi (plain, cooked)",
-          "calories": 130
-        },
-        {
-          "name": "Potato gratin (dauphinoise)",
-          "calories": 175
-        }
+        { "name": "Boiled potato (plain)", "calories": 87, "protein": 2 },
+        { "name": "Mashed potato (with butter & milk)", "calories": 113, "protein": 2 },
+        { "name": "Baked potato (plain)", "calories": 93, "protein": 3 },
+        { "name": "Loaded baked potato (sour cream, cheese, bacon)", "calories": 190, "protein": 6 },
+        { "name": "Roasted potatoes (with oil)", "calories": 149, "protein": 3 },
+        { "name": "Hash browns", "calories": 265, "protein": 3 },
+        { "name": "Potato salad (mayo-based)", "calories": 143, "protein": 2 },
+        { "name": "Gnocchi (plain, cooked)", "calories": 130, "protein": 3 },
+        { "name": "Potato gratin (dauphinoise)", "calories": 175, "protein": 4 }
       ],
       "rice_cooked": [
-        {
-          "name": "White rice (steamed)",
-          "calories": 130
-        },
-        {
-          "name": "Brown rice (cooked)",
-          "calories": 111
-        },
-        {
-          "name": "Fried rice (egg & vegetables)",
-          "calories": 163
-        },
-        {
-          "name": "Fried rice (with chicken)",
-          "calories": 185
-        },
-        {
-          "name": "Risotto (plain parmesan)",
-          "calories": 150
-        },
-        {
-          "name": "Risotto (mushroom)",
-          "calories": 143
-        },
-        {
-          "name": "Pilaf (rice with butter & broth)",
-          "calories": 140
-        },
-        {
-          "name": "Sushi rice (seasoned)",
-          "calories": 166
-        },
-        {
-          "name": "Congee (rice porridge)",
-          "calories": 65
-        },
-        {
-          "name": "Paella (seafood)",
-          "calories": 175
-        },
-        {
-          "name": "Biryani (chicken)",
-          "calories": 200
-        }
+        { "name": "White rice (steamed)", "calories": 130, "protein": 3 },
+        { "name": "Brown rice (cooked)", "calories": 111, "protein": 3 },
+        { "name": "Fried rice (egg & vegetables)", "calories": 163, "protein": 4 },
+        { "name": "Fried rice (with chicken)", "calories": 185, "protein": 8 },
+        { "name": "Risotto (plain parmesan)", "calories": 150, "protein": 4 },
+        { "name": "Risotto (mushroom)", "calories": 143, "protein": 4 },
+        { "name": "Pilaf (rice with butter & broth)", "calories": 140, "protein": 3 },
+        { "name": "Sushi rice (seasoned)", "calories": 166, "protein": 3 },
+        { "name": "Congee (rice porridge)", "calories": 65, "protein": 2 },
+        { "name": "Paella (seafood)", "calories": 175, "protein": 9 },
+        { "name": "Biryani (chicken)", "calories": 200, "protein": 12 }
       ],
       "steaks_and_grilled_meats": [
-        {
-          "name": "Beef sirloin steak (grilled, medium)",
-          "calories": 212
-        },
-        {
-          "name": "Beef ribeye steak (grilled, medium)",
-          "calories": 274
-        },
-        {
-          "name": "Beef tenderloin (fillet, grilled)",
-          "calories": 215
-        },
-        {
-          "name": "Beef T-bone steak (grilled)",
-          "calories": 247
-        },
-        {
-          "name": "Beef flank steak (grilled)",
-          "calories": 192
-        },
-        {
-          "name": "New York strip steak (grilled)",
-          "calories": 223
-        },
-        {
-          "name": "Pork chop (grilled)",
-          "calories": 210
-        },
-        {
-          "name": "Pork slices, pan-fried (~15% fat)",
-          "calories": 255
-        },
-        {
-          "name": "Pork tenderloin (roasted)",
-          "calories": 166
-        },
-        {
-          "name": "Pork ribs (BBQ, smoked)",
-          "calories": 278
-        },
-        {
-          "name": "Lamb chop (grilled)",
-          "calories": 261
-        },
-        {
-          "name": "Lamb rack (roasted)",
-          "calories": 290
-        },
-        {
-          "name": "Chicken breast (grilled)",
-          "calories": 165
-        },
-        {
-          "name": "Chicken thigh (grilled)",
-          "calories": 190
-        },
-        {
-          "name": "BBQ chicken drumstick",
-          "calories": 185
-        },
-        {
-          "name": "Rotisserie chicken (average)",
-          "calories": 200
-        },
-        {
-          "name": "Steak with fries (combo, avg)",
-          "calories": 270
-        },
-        {
-          "name": "Steak with mashed potato (combo, avg)",
-          "calories": 205
-        },
-        {
-          "name": "Steak with rice (combo, avg)",
-          "calories": 195
-        }
+        { "name": "Beef sirloin steak (grilled, medium)", "calories": 212, "protein": 27 },
+        { "name": "Beef ribeye steak (grilled, medium)", "calories": 274, "protein": 24 },
+        { "name": "Beef tenderloin (fillet, grilled)", "calories": 215, "protein": 27 },
+        { "name": "Beef T-bone steak (grilled)", "calories": 247, "protein": 24 },
+        { "name": "Beef flank steak (grilled)", "calories": 192, "protein": 28 },
+        { "name": "New York strip steak (grilled)", "calories": 223, "protein": 26 },
+        { "name": "Pork chop (grilled)", "calories": 210, "protein": 25 },
+        { "name": "Pork slices, pan-fried (~15% fat)", "calories": 255, "protein": 22 },
+        { "name": "Pork tenderloin (roasted)", "calories": 166, "protein": 23 },
+        { "name": "Pork ribs (BBQ, smoked)", "calories": 278, "protein": 17 },
+        { "name": "Lamb chop (grilled)", "calories": 261, "protein": 25 },
+        { "name": "Lamb rack (roasted)", "calories": 290, "protein": 23 },
+        { "name": "Chicken breast (grilled)", "calories": 165, "protein": 31 },
+        { "name": "Chicken thigh (grilled)", "calories": 190, "protein": 26 },
+        { "name": "BBQ chicken drumstick", "calories": 185, "protein": 23 },
+        { "name": "Rotisserie chicken (average)", "calories": 200, "protein": 22 },
+        { "name": "Steak with fries (combo, avg)", "calories": 270, "protein": 18 },
+        { "name": "Steak with mashed potato (combo, avg)", "calories": 205, "protein": 16 },
+        { "name": "Steak with rice (combo, avg)", "calories": 195, "protein": 17 }
       ],
       "pasta_dishes": [
-        {
-          "name": "Spaghetti Bolognese",
-          "calories": 163
-        },
-        {
-          "name": "Spaghetti Carbonara",
-          "calories": 230
-        },
-        {
-          "name": "Pasta Alfredo",
-          "calories": 210
-        },
-        {
-          "name": "Penne Arrabbiata",
-          "calories": 150
-        },
-        {
-          "name": "Lasagne (meat)",
-          "calories": 168
-        },
-        {
-          "name": "Lasagne (vegetable)",
-          "calories": 135
-        },
-        {
-          "name": "Pasta Primavera",
-          "calories": 140
-        },
-        {
-          "name": "Pasta with pesto",
-          "calories": 220
-        },
-        {
-          "name": "Cacio e Pepe",
-          "calories": 250
-        },
-        {
-          "name": "Pasta e Fagioli",
-          "calories": 125
-        },
-        {
-          "name": "Gnocchi with tomato sauce",
-          "calories": 145
-        },
-        {
-          "name": "Mac and cheese (baked)",
-          "calories": 183
-        },
-        {
-          "name": "Pasta salad (cold, with vegetables)",
-          "calories": 130
-        }
+        { "name": "Spaghetti Bolognese", "calories": 163, "protein": 8 },
+        { "name": "Spaghetti Carbonara", "calories": 230, "protein": 10 },
+        { "name": "Pasta Alfredo", "calories": 210, "protein": 8 },
+        { "name": "Penne Arrabbiata", "calories": 150, "protein": 5 },
+        { "name": "Lasagne (meat)", "calories": 168, "protein": 9 },
+        { "name": "Lasagne (vegetable)", "calories": 135, "protein": 6 },
+        { "name": "Pasta Primavera", "calories": 140, "protein": 5 },
+        { "name": "Pasta with pesto", "calories": 220, "protein": 7 },
+        { "name": "Cacio e Pepe", "calories": 250, "protein": 9 },
+        { "name": "Pasta e Fagioli", "calories": 125, "protein": 7 },
+        { "name": "Gnocchi with tomato sauce", "calories": 145, "protein": 5 },
+        { "name": "Mac and cheese (baked)", "calories": 183, "protein": 8 },
+        { "name": "Pasta salad (cold, with vegetables)", "calories": 130, "protein": 4 }
       ],
       "soups": [
-        {
-          "name": "Chicken noodle soup",
-          "calories": 62
-        },
-        {
-          "name": "Chicken broth (plain)",
-          "calories": 15
-        },
-        {
-          "name": "Beef broth (plain)",
-          "calories": 17
-        },
-        {
-          "name": "Tomato soup (cream of)",
-          "calories": 85
-        },
-        {
-          "name": "Minestrone",
-          "calories": 70
-        },
-        {
-          "name": "French onion soup",
-          "calories": 65
-        },
-        {
-          "name": "Clam chowder (New England)",
-          "calories": 100
-        },
-        {
-          "name": "Clam chowder (Manhattan)",
-          "calories": 55
-        },
-        {
-          "name": "Pea and ham soup",
-          "calories": 80
-        },
-        {
-          "name": "Lentil soup",
-          "calories": 90
-        },
-        {
-          "name": "Bean soup",
-          "calories": 85
-        },
-        {
-          "name": "Gazpacho",
-          "calories": 45
-        },
-        {
-          "name": "Borscht (beet soup)",
-          "calories": 50
-        },
-        {
-          "name": "Pho (beef broth with noodles)",
-          "calories": 65
-        },
-        {
-          "name": "Ramen (pork broth, noodles, egg)",
-          "calories": 95
-        },
-        {
-          "name": "Tom Yum soup",
-          "calories": 55
-        },
-        {
-          "name": "Miso soup (with tofu)",
-          "calories": 35
-        },
-        {
-          "name": "Mushroom cream soup",
-          "calories": 95
-        },
-        {
-          "name": "Pumpkin soup (cream of)",
-          "calories": 70
-        },
-        {
-          "name": "Potato soup (cream of)",
-          "calories": 80
-        },
-        {
-          "name": "Lohikeitto (Finnish salmon soup)",
-          "calories": 85
-        },
-        {
-          "name": "Goulash soup",
-          "calories": 78
-        },
-        {
-          "name": "Ciorbă de burtă (Romanian tripe soup)",
-          "calories": 65
-        },
-        {
-          "name": "Ciorbă de legume (Romanian veg soup)",
-          "calories": 40
-        }
+        { "name": "Chicken noodle soup", "calories": 62, "protein": 5 },
+        { "name": "Chicken broth (plain)", "calories": 15, "protein": 2 },
+        { "name": "Beef broth (plain)", "calories": 17, "protein": 2 },
+        { "name": "Tomato soup (cream of)", "calories": 85, "protein": 2 },
+        { "name": "Minestrone", "calories": 70, "protein": 3 },
+        { "name": "French onion soup", "calories": 65, "protein": 3 },
+        { "name": "Clam chowder (New England)", "calories": 100, "protein": 5 },
+        { "name": "Clam chowder (Manhattan)", "calories": 55, "protein": 4 },
+        { "name": "Pea and ham soup", "calories": 80, "protein": 6 },
+        { "name": "Lentil soup", "calories": 90, "protein": 5 },
+        { "name": "Bean soup", "calories": 85, "protein": 5 },
+        { "name": "Gazpacho", "calories": 45, "protein": 1 },
+        { "name": "Borscht (beet soup)", "calories": 50, "protein": 2 },
+        { "name": "Pho (beef broth with noodles)", "calories": 65, "protein": 6 },
+        { "name": "Ramen (pork broth, noodles, egg)", "calories": 95, "protein": 5 },
+        { "name": "Tom Yum soup", "calories": 55, "protein": 4 },
+        { "name": "Miso soup (with tofu)", "calories": 35, "protein": 3 },
+        { "name": "Mushroom cream soup", "calories": 95, "protein": 2 },
+        { "name": "Pumpkin soup (cream of)", "calories": 70, "protein": 2 },
+        { "name": "Potato soup (cream of)", "calories": 80, "protein": 2 },
+        { "name": "Goulash soup", "calories": 78, "protein": 5 },
+        { "name": "Ciorbă de burtă (Romanian tripe soup)", "calories": 65, "protein": 6 },
+        { "name": "Ciorbă de legume (Romanian veg soup)", "calories": 40, "protein": 2 }
       ],
       "sushi_and_japanese": [
-        {
-          "name": "Sushi roll, salmon (maki)",
-          "calories": 170
-        },
-        {
-          "name": "Sushi roll, tuna (maki)",
-          "calories": 155
-        },
-        {
-          "name": "Sushi roll, cucumber (kappa maki)",
-          "calories": 78
-        },
-        {
-          "name": "Sushi roll, avocado",
-          "calories": 140
-        },
-        {
-          "name": "California roll",
-          "calories": 159
-        },
-        {
-          "name": "Dragon roll",
-          "calories": 200
-        },
-        {
-          "name": "Spicy tuna roll",
-          "calories": 175
-        },
-        {
-          "name": "Nigiri, salmon",
-          "calories": 140
-        },
-        {
-          "name": "Nigiri, tuna",
-          "calories": 130
-        },
-        {
-          "name": "Nigiri, shrimp (ebi)",
-          "calories": 115
-        },
-        {
-          "name": "Nigiri, eel (unagi)",
-          "calories": 165
-        },
-        {
-          "name": "Sashimi, salmon",
-          "calories": 127
-        },
-        {
-          "name": "Sashimi, tuna",
-          "calories": 108
-        },
-        {
-          "name": "Temaki (hand roll, salmon)",
-          "calories": 165
-        },
-        {
-          "name": "Chirashi bowl (assorted sashimi on rice)",
-          "calories": 180
-        },
-        {
-          "name": "Edamame (salted, steamed)",
-          "calories": 121
-        },
-        {
-          "name": "Gyoza (pan-fried pork dumplings)",
-          "calories": 210
-        },
-        {
-          "name": "Katsu curry (chicken)",
-          "calories": 220
-        },
-        {
-          "name": "Teriyaki chicken with rice",
-          "calories": 185
-        },
-        {
-          "name": "Udon noodle soup",
-          "calories": 85
-        },
-        {
-          "name": "Tempura (shrimp)",
-          "calories": 200
-        },
-        {
-          "name": "Tonkatsu (breaded pork cutlet)",
-          "calories": 298
-        }
+        { "name": "Sushi roll, salmon (maki)", "calories": 170, "protein": 7 },
+        { "name": "Sushi roll, tuna (maki)", "calories": 155, "protein": 8 },
+        { "name": "Sushi roll, cucumber (kappa maki)", "calories": 78, "protein": 2 },
+        { "name": "California roll", "calories": 159, "protein": 6 },
+        { "name": "Dragon roll", "calories": 200, "protein": 7 },
+        { "name": "Spicy tuna roll", "calories": 175, "protein": 8 },
+        { "name": "Nigiri, salmon", "calories": 140, "protein": 10 },
+        { "name": "Nigiri, tuna", "calories": 130, "protein": 11 },
+        { "name": "Sashimi, salmon", "calories": 127, "protein": 20 },
+        { "name": "Sashimi, tuna", "calories": 108, "protein": 23 },
+        { "name": "Gyoza (pan-fried pork dumplings)", "calories": 210, "protein": 9 },
+        { "name": "Katsu curry (chicken)", "calories": 220, "protein": 14 },
+        { "name": "Teriyaki chicken with rice", "calories": 185, "protein": 14 },
+        { "name": "Tonkatsu (breaded pork cutlet)", "calories": 298, "protein": 18 }
       ],
       "ribs_and_bbq": [
-        {
-          "name": "Pork spare ribs (BBQ, smoked)",
-          "calories": 292
-        },
-        {
-          "name": "Pork back ribs (BBQ)",
-          "calories": 278
-        },
-        {
-          "name": "Beef short ribs (braised)",
-          "calories": 280
-        },
-        {
-          "name": "Beef ribs (BBQ, smoked)",
-          "calories": 295
-        },
-        {
-          "name": "Lamb ribs (grilled)",
-          "calories": 285
-        },
-        {
-          "name": "BBQ pulled pork",
-          "calories": 215
-        },
-        {
-          "name": "BBQ brisket (smoked)",
-          "calories": 245
-        },
-        {
-          "name": "BBQ sausage (grilled)",
-          "calories": 310
-        },
-        {
-          "name": "Chicken wings (BBQ glazed)",
-          "calories": 270
-        },
-        {
-          "name": "Buffalo wings",
-          "calories": 290
-        }
+        { "name": "Pork spare ribs (BBQ, smoked)", "calories": 292, "protein": 18 },
+        { "name": "Pork back ribs (BBQ)", "calories": 278, "protein": 17 },
+        { "name": "Beef short ribs (braised)", "calories": 280, "protein": 18 },
+        { "name": "Beef ribs (BBQ, smoked)", "calories": 295, "protein": 19 },
+        { "name": "BBQ pulled pork", "calories": 215, "protein": 24 },
+        { "name": "BBQ brisket (smoked)", "calories": 245, "protein": 24 },
+        { "name": "Chicken wings (BBQ glazed)", "calories": 270, "protein": 23 },
+        { "name": "Buffalo wings", "calories": 290, "protein": 24 }
       ],
       "breakfast_dishes": [
-        {
-          "name": "Scrambled eggs (with butter)",
-          "calories": 148
-        },
-        {
-          "name": "Fried egg (in oil)",
-          "calories": 196
-        },
-        {
-          "name": "Omelette (plain)",
-          "calories": 154
-        },
-        {
-          "name": "Omelette (cheese)",
-          "calories": 195
-        },
-        {
-          "name": "Omelette (cheese, caramelised onion, dill)",
-          "calories": 220
-        },
-        {
-          "name": "Boiled egg (hard)",
-          "calories": 155
-        },
-        {
-          "name": "Poached egg",
-          "calories": 143
-        },
-        {
-          "name": "Eggs Benedict",
-          "calories": 250
-        },
-        {
-          "name": "Pancakes (plain, with butter)",
-          "calories": 227
-        },
-        {
-          "name": "Pancakes with maple syrup",
-          "calories": 290
-        },
-        {
-          "name": "Waffles (plain)",
-          "calories": 291
-        },
-        {
-          "name": "French toast",
-          "calories": 229
-        },
-        {
-          "name": "Oatmeal / Porridge (with water)",
-          "calories": 71
-        },
-        {
-          "name": "Oatmeal (with whole milk)",
-          "calories": 100
-        },
-        {
-          "name": "Granola (with milk)",
-          "calories": 165
-        },
-        {
-          "name": "Bacon (pan-fried, crispy)",
-          "calories": 541
-        },
-        {
-          "name": "Sausage, pork (pan-fried)",
-          "calories": 376
-        },
-        {
-          "name": "Full English breakfast (avg)",
-          "calories": 218
-        },
-        {
-          "name": "Avocado toast",
-          "calories": 195
-        },
-        {
-          "name": "Smoothie bowl (fruit-based)",
-          "calories": 110
-        }
+        { "name": "Scrambled eggs (with butter)", "calories": 148, "protein": 10 },
+        { "name": "Fried egg (in oil)", "calories": 196, "protein": 13 },
+        { "name": "Omelette (plain)", "calories": 154, "protein": 11 },
+        { "name": "Omelette (cheese)", "calories": 195, "protein": 12 },
+        { "name": "Omelette (cheese, caramelised onion, dill)", "calories": 220, "protein": 13 },
+        { "name": "Boiled egg (hard)", "calories": 155, "protein": 13 },
+        { "name": "Eggs Benedict", "calories": 250, "protein": 12 },
+        { "name": "Pancakes (plain, with butter)", "calories": 227, "protein": 6 },
+        { "name": "Pancakes with maple syrup", "calories": 290, "protein": 5 },
+        { "name": "Waffles (plain)", "calories": 291, "protein": 8 },
+        { "name": "French toast", "calories": 229, "protein": 8 },
+        { "name": "Oatmeal / Porridge (with water)", "calories": 71, "protein": 3 },
+        { "name": "Granola (with milk)", "calories": 165, "protein": 6 },
+        { "name": "Bacon (pan-fried, crispy)", "calories": 541, "protein": 37 },
+        { "name": "Sausage, pork (pan-fried)", "calories": 376, "protein": 12 },
+        { "name": "Full English breakfast (avg)", "calories": 218, "protein": 12 },
+        { "name": "Avocado toast", "calories": 195, "protein": 4 }
       ],
       "salads": [
-        {
-          "name": "Caesar salad (with croutons, dressing)",
-          "calories": 150
-        },
-        {
-          "name": "Greek salad",
-          "calories": 95
-        },
-        {
-          "name": "Niçoise salad",
-          "calories": 115
-        },
-        {
-          "name": "Caprese salad (tomato, mozzarella, basil)",
-          "calories": 170
-        },
-        {
-          "name": "Cobb salad",
-          "calories": 175
-        },
-        {
-          "name": "Waldorf salad",
-          "calories": 140
-        },
-        {
-          "name": "Tuna salad",
-          "calories": 160
-        },
-        {
-          "name": "Quinoa salad (with vegetables)",
-          "calories": 120
-        },
-        {
-          "name": "Fattoush salad",
-          "calories": 85
-        },
-        {
-          "name": "Tabbouleh",
-          "calories": 80
-        }
+        { "name": "Caesar salad (with croutons, dressing)", "calories": 150, "protein": 6 },
+        { "name": "Greek salad", "calories": 95, "protein": 5 },
+        { "name": "Caprese salad (tomato, mozzarella, basil)", "calories": 170, "protein": 9 },
+        { "name": "Cobb salad", "calories": 175, "protein": 11 },
+        { "name": "Tuna salad", "calories": 160, "protein": 15 },
+        { "name": "Tabbouleh", "calories": 80, "protein": 3 }
       ],
       "street_food_and_fast_food": [
-        {
-          "name": "Shawarma (chicken, wrap)",
-          "calories": 220
-        },
-        {
-          "name": "Falafel (fried)",
-          "calories": 333
-        },
-        {
-          "name": "Tacos (beef, corn tortilla)",
-          "calories": 226
-        },
-        {
-          "name": "Tacos (fish)",
-          "calories": 185
-        },
-        {
-          "name": "Burrito (beef and rice)",
-          "calories": 217
-        },
-        {
-          "name": "Quesadilla (cheese)",
-          "calories": 305
-        },
-        {
-          "name": "Empanada (beef)",
-          "calories": 297
-        },
-        {
-          "name": "Spring rolls (fried, pork)",
-          "calories": 205
-        },
-        {
-          "name": "Samosa (potato, fried)",
-          "calories": 262
-        },
-        {
-          "name": "Croissant (plain)",
-          "calories": 406
-        },
-        {
-          "name": "Bagel (plain)",
-          "calories": 250
-        },
-        {
-          "name": "Pretzel (soft, plain)",
-          "calories": 257
-        },
-        {
-          "name": "Corn dog",
-          "calories": 270
-        },
-        {
-          "name": "Fish and chips",
-          "calories": 253
-        },
-        {
-          "name": "Fish tacos",
-          "calories": 190
-        }
+        { "name": "Shawarma (chicken, wrap)", "calories": 220, "protein": 14 },
+        { "name": "Falafel (fried)", "calories": 333, "protein": 13 },
+        { "name": "Tacos (beef, corn tortilla)", "calories": 226, "protein": 11 },
+        { "name": "Burrito (beef and rice)", "calories": 217, "protein": 11 },
+        { "name": "Quesadilla (cheese)", "calories": 305, "protein": 12 },
+        { "name": "Spring rolls (fried, pork)", "calories": 205, "protein": 7 },
+        { "name": "Samosa (potato, fried)", "calories": 262, "protein": 5 },
+        { "name": "Croissant (plain)", "calories": 406, "protein": 8 },
+        { "name": "Bagel (plain)", "calories": 250, "protein": 9 },
+        { "name": "Corn dog", "calories": 270, "protein": 6 },
+        { "name": "Fish and chips", "calories": 253, "protein": 12 }
       ],
       "stews_and_braises": [
-        {
-          "name": "Beef stew",
-          "calories": 120
-        },
-        {
-          "name": "Beef goulash",
-          "calories": 130
-        },
-        {
-          "name": "Irish stew (lamb)",
-          "calories": 110
-        },
-        {
-          "name": "Chicken stew",
-          "calories": 100
-        },
-        {
-          "name": "Chili con carne",
-          "calories": 150
-        },
-        {
-          "name": "Chili, vegetarian",
-          "calories": 110
-        },
-        {
-          "name": "Pork and bean casserole",
-          "calories": 130
-        },
-        {
-          "name": "Coq au vin",
-          "calories": 150
-        },
-        {
-          "name": "Osso buco (veal shank braised)",
-          "calories": 165
-        },
-        {
-          "name": "Lamb tagine",
-          "calories": 140
-        },
-        {
-          "name": "Moussaka",
-          "calories": 160
-        },
-        {
-          "name": "Shepherd's pie",
-          "calories": 118
-        },
-        {
-          "name": "Cottage pie",
-          "calories": 115
-        },
-        {
-          "name": "Pot roast (beef with vegetables)",
-          "calories": 140
-        },
-        {
-          "name": "Stuffed peppers (beef & rice)",
-          "calories": 130
-        }
+        { "name": "Beef stew", "calories": 120, "protein": 10 },
+        { "name": "Beef goulash", "calories": 130, "protein": 10 },
+        { "name": "Chicken stew", "calories": 100, "protein": 11 },
+        { "name": "Chili con carne", "calories": 150, "protein": 9 },
+        { "name": "Coq au vin", "calories": 150, "protein": 13 },
+        { "name": "Lamb tagine", "calories": 140, "protein": 11 },
+        { "name": "Moussaka", "calories": 160, "protein": 9 },
+        { "name": "Shepherd's pie", "calories": 118, "protein": 8 },
+        { "name": "Stuffed peppers (beef & rice)", "calories": 130, "protein": 8 }
       ]
     },
     "sweets_and_desserts": {
       "chocolate": [
-        {
-          "name": "Dark chocolate (70%+)",
-          "calories": 598
-        },
-        {
-          "name": "Dark chocolate (85%+)",
-          "calories": 611
-        },
-        {
-          "name": "Milk chocolate",
-          "calories": 535
-        },
-        {
-          "name": "White chocolate",
-          "calories": 539
-        },
-        {
-          "name": "Chocolate with nuts (average)",
-          "calories": 560
-        },
-        {
-          "name": "Chocolate with caramel filling",
-          "calories": 490
-        },
-        {
-          "name": "Cocoa powder (unsweetened)",
-          "calories": 228
-        },
-        {
-          "name": "Nutella / hazelnut spread",
-          "calories": 539
-        },
-        {
-          "name": "Chocolate truffle",
-          "calories": 450
-        },
-        {
-          "name": "Chocolate-covered almonds",
-          "calories": 520
-        },
-        {
-          "name": "Kit Kat (wafer chocolate bar)",
-          "calories": 508
-        },
-        {
-          "name": "Snickers bar",
-          "calories": 488
-        },
-        {
-          "name": "Twix bar",
-          "calories": 498
-        },
-        {
-          "name": "Mars bar",
-          "calories": 449
-        },
-        {
-          "name": "Bounty bar",
-          "calories": 471
-        },
-        {
-          "name": "Ferrero Rocher",
-          "calories": 566
-        }
+        { "name": "Dark chocolate (70%+)", "calories": 598, "protein": 8 },
+        { "name": "Dark chocolate (85%+)", "calories": 611, "protein": 9 },
+        { "name": "Milk chocolate", "calories": 535, "protein": 8 },
+        { "name": "White chocolate", "calories": 539, "protein": 6 },
+        { "name": "Chocolate with nuts (average)", "calories": 560, "protein": 7 },
+        { "name": "Nutella / hazelnut spread", "calories": 539, "protein": 6 },
+        { "name": "Cocoa powder (unsweetened)", "calories": 228, "protein": 20 },
+        { "name": "Chocolate truffle", "calories": 450, "protein": 6 },
+        { "name": "Kit Kat (wafer chocolate bar)", "calories": 508, "protein": 6 },
+        { "name": "Snickers bar", "calories": 488, "protein": 8 },
+        { "name": "Twix bar", "calories": 498, "protein": 7 },
+        { "name": "Mars bar", "calories": 449, "protein": 5 },
+        { "name": "Bounty bar", "calories": 471, "protein": 3 },
+        { "name": "Ferrero Rocher", "calories": 566, "protein": 8 }
       ],
       "ice_cream_and_frozen": [
-        {
-          "name": "Ice cream, vanilla (full fat)",
-          "calories": 207
-        },
-        {
-          "name": "Ice cream, chocolate",
-          "calories": 216
-        },
-        {
-          "name": "Ice cream, strawberry",
-          "calories": 192
-        },
-        {
-          "name": "Ice cream, cookie dough",
-          "calories": 256
-        },
-        {
-          "name": "Gelato, vanilla",
-          "calories": 170
-        },
-        {
-          "name": "Gelato, chocolate",
-          "calories": 185
-        },
-        {
-          "name": "Sorbet, lemon",
-          "calories": 127
-        },
-        {
-          "name": "Sorbet, mango",
-          "calories": 130
-        },
-        {
-          "name": "Frozen yogurt (plain)",
-          "calories": 127
-        },
-        {
-          "name": "Soft serve (vanilla cone)",
-          "calories": 193
-        },
-        {
-          "name": "Magnum ice cream bar (classic)",
-          "calories": 285
-        },
-        {
-          "name": "Popsicle / Ice lolly (fruit)",
-          "calories": 55
-        },
-        {
-          "name": "Ben & Jerry's (avg, cookie dough)",
-          "calories": 270
-        },
-        {
-          "name": "Ice cream sandwich",
-          "calories": 220
-        },
-        {
-          "name": "Milkshake, chocolate (thick)",
-          "calories": 112
-        }
+        { "name": "Ice cream, vanilla (full fat)", "calories": 207, "protein": 4 },
+        { "name": "Ice cream, chocolate", "calories": 216, "protein": 4 },
+        { "name": "Ice cream, strawberry", "calories": 192, "protein": 3 },
+        { "name": "Ice cream, cookie dough", "calories": 256, "protein": 4 },
+        { "name": "Gelato, vanilla", "calories": 170, "protein": 4 },
+        { "name": "Gelato, chocolate", "calories": 185, "protein": 4 },
+        { "name": "Sorbet, lemon", "calories": 127, "protein": 0 },
+        { "name": "Sorbet, mango", "calories": 130, "protein": 0 },
+        { "name": "Frozen yogurt (plain)", "calories": 127, "protein": 3 },
+        { "name": "Soft serve (vanilla cone)", "calories": 193, "protein": 3 },
+        { "name": "Magnum ice cream bar (classic)", "calories": 285, "protein": 4 },
+        { "name": "Popsicle / Ice lolly (fruit)", "calories": 55, "protein": 0 },
+        { "name": "Milkshake, chocolate (thick)", "calories": 112, "protein": 4 }
       ],
       "cakes_and_pastries": [
-        {
-          "name": "Cheesecake (New York style)",
-          "calories": 321
-        },
-        {
-          "name": "Cheesecake, no-bake",
-          "calories": 290
-        },
-        {
-          "name": "Chocolate cake (with frosting)",
-          "calories": 371
-        },
-        {
-          "name": "Carrot cake (with cream cheese frosting)",
-          "calories": 340
-        },
-        {
-          "name": "Red velvet cake",
-          "calories": 366
-        },
-        {
-          "name": "Victoria sponge",
-          "calories": 349
-        },
-        {
-          "name": "Lemon drizzle cake",
-          "calories": 366
-        },
-        {
-          "name": "Banana bread",
-          "calories": 264
-        },
-        {
-          "name": "Tiramisu",
-          "calories": 283
-        },
-        {
-          "name": "Profiterole / Cream puff",
-          "calories": 286
-        },
-        {
-          "name": "Éclair (chocolate)",
-          "calories": 290
-        },
-        {
-          "name": "Mille-feuille (Napoleon)",
-          "calories": 305
-        },
-        {
-          "name": "Croissant (butter, plain)",
-          "calories": 406
-        },
-        {
-          "name": "Pain au chocolat",
-          "calories": 394
-        },
-        {
-          "name": "Cinnamon roll",
-          "calories": 379
-        },
-        {
-          "name": "Danish pastry (fruit)",
-          "calories": 374
-        },
-        {
-          "name": "Baklava",
-          "calories": 428
-        },
-        {
-          "name": "Churros (fried, with sugar)",
-          "calories": 328
-        },
-        {
-          "name": "Donut (glazed)",
-          "calories": 452
-        },
-        {
-          "name": "Donut (filled, jam)",
-          "calories": 420
-        },
-        {
-          "name": "Muffin, blueberry",
-          "calories": 377
-        },
-        {
-          "name": "Muffin, chocolate chip",
-          "calories": 400
-        },
-        {
-          "name": "Brownie (chocolate fudge)",
-          "calories": 415
-        },
-        {
-          "name": "Waffle (plain, syrup)",
-          "calories": 320
-        },
-        {
-          "name": "Crepe (plain)",
-          "calories": 186
-        },
-        {
-          "name": "Crepe (Nutella & banana)",
-          "calories": 290
-        },
-        {
-          "name": "Pancake (fluffy, with syrup)",
-          "calories": 267
-        },
-        {
-          "name": "Strudel (apple)",
-          "calories": 233
-        },
-        {
-          "name": "Pavlova (with cream & fruit)",
-          "calories": 265
-        },
-        {
-          "name": "Tart, lemon (lemon curd)",
-          "calories": 325
-        },
-        {
-          "name": "Tart, fruit (pastry cream)",
-          "calories": 275
-        },
-        {
-          "name": "Tart, chocolate ganache",
-          "calories": 400
-        }
+        { "name": "Cheesecake (New York style)", "calories": 321, "protein": 6 },
+        { "name": "Chocolate cake (with frosting)", "calories": 371, "protein": 4 },
+        { "name": "Carrot cake (with cream cheese frosting)", "calories": 340, "protein": 4 },
+        { "name": "Red velvet cake", "calories": 366, "protein": 4 },
+        { "name": "Victoria sponge", "calories": 349, "protein": 5 },
+        { "name": "Banana bread", "calories": 264, "protein": 4 },
+        { "name": "Tiramisu", "calories": 283, "protein": 5 },
+        { "name": "Profiterole / Cream puff", "calories": 286, "protein": 7 },
+        { "name": "Éclair (chocolate)", "calories": 290, "protein": 7 },
+        { "name": "Mille-feuille (Napoleon)", "calories": 305, "protein": 5 },
+        { "name": "Croissant (butter, plain)", "calories": 406, "protein": 8 },
+        { "name": "Pain au chocolat", "calories": 394, "protein": 7 },
+        { "name": "Cinnamon roll", "calories": 379, "protein": 6 },
+        { "name": "Baklava", "calories": 428, "protein": 7 },
+        { "name": "Churros (fried, with sugar)", "calories": 328, "protein": 5 },
+        { "name": "Donut (glazed)", "calories": 452, "protein": 5 },
+        { "name": "Donut (filled, jam)", "calories": 420, "protein": 5 },
+        { "name": "Muffin, blueberry", "calories": 377, "protein": 5 },
+        { "name": "Brownie (chocolate fudge)", "calories": 415, "protein": 5 },
+        { "name": "Crepe (plain)", "calories": 186, "protein": 6 },
+        { "name": "Crepe (Nutella & banana)", "calories": 290, "protein": 6 },
+        { "name": "Strudel (apple)", "calories": 233, "protein": 3 },
+        { "name": "Pavlova (with cream & fruit)", "calories": 265, "protein": 3 },
+        { "name": "Tart, lemon (lemon curd)", "calories": 325, "protein": 4 }
       ],
       "cookies_and_biscuits": [
-        {
-          "name": "Chocolate chip cookie",
-          "calories": 488
-        },
-        {
-          "name": "Oatmeal raisin cookie",
-          "calories": 420
-        },
-        {
-          "name": "Shortbread",
-          "calories": 498
-        },
-        {
-          "name": "Oreo",
-          "calories": 471
-        },
-        {
-          "name": "Digestive biscuit",
-          "calories": 475
-        },
-        {
-          "name": "Graham cracker",
-          "calories": 426
-        },
-        {
-          "name": "Macaroon (French macaron)",
-          "calories": 400
-        },
-        {
-          "name": "Biscotti",
-          "calories": 430
-        },
-        {
-          "name": "Peanut butter cookie",
-          "calories": 480
-        },
-        {
-          "name": "Gingerbread cookie",
-          "calories": 430
-        },
-        {
-          "name": "Sugar cookie",
-          "calories": 460
-        },
-        {
-          "name": "Stroopwafel",
-          "calories": 459
-        }
+        { "name": "Chocolate chip cookie", "calories": 488, "protein": 6 },
+        { "name": "Oatmeal raisin cookie", "calories": 420, "protein": 5 },
+        { "name": "Shortbread", "calories": 498, "protein": 5 },
+        { "name": "Oreo", "calories": 471, "protein": 5 },
+        { "name": "Digestive biscuit", "calories": 475, "protein": 6 },
+        { "name": "Macaroon (French macaron)", "calories": 400, "protein": 5 },
+        { "name": "Peanut butter cookie", "calories": 480, "protein": 8 },
+        { "name": "Gingerbread cookie", "calories": 430, "protein": 5 },
+        { "name": "Stroopwafel", "calories": 459, "protein": 5 }
       ],
       "puddings_and_custards": [
-        {
-          "name": "Crème brûlée",
-          "calories": 238
-        },
-        {
-          "name": "Panna cotta (plain)",
-          "calories": 208
-        },
-        {
-          "name": "Chocolate mousse",
-          "calories": 240
-        },
-        {
-          "name": "Bread and butter pudding",
-          "calories": 195
-        },
-        {
-          "name": "Rice pudding (milk-based)",
-          "calories": 118
-        },
-        {
-          "name": "Custard (pouring, vanilla)",
-          "calories": 118
-        },
-        {
-          "name": "Pudding, chocolate (instant)",
-          "calories": 130
-        },
-        {
-          "name": "Flan (caramel custard)",
-          "calories": 160
-        },
-        {
-          "name": "Eton mess (cream, meringue, strawberry)",
-          "calories": 248
-        },
-        {
-          "name": "Trifle",
-          "calories": 185
-        },
-        {
-          "name": "Jello / Jelly (set, fruit)",
-          "calories": 60
-        }
+        { "name": "Crème brûlée", "calories": 238, "protein": 5 },
+        { "name": "Panna cotta (plain)", "calories": 208, "protein": 4 },
+        { "name": "Chocolate mousse", "calories": 240, "protein": 5 },
+        { "name": "Rice pudding (milk-based)", "calories": 118, "protein": 3 },
+        { "name": "Custard (pouring, vanilla)", "calories": 118, "protein": 3 },
+        { "name": "Flan (caramel custard)", "calories": 160, "protein": 5 },
+        { "name": "Trifle", "calories": 185, "protein": 4 }
       ],
       "candies_and_sweets": [
-        {
-          "name": "Gummy bears",
-          "calories": 330
-        },
-        {
-          "name": "Jelly beans",
-          "calories": 367
-        },
-        {
-          "name": "Marshmallows",
-          "calories": 318
-        },
-        {
-          "name": "Caramel (soft)",
-          "calories": 382
-        },
-        {
-          "name": "Toffee",
-          "calories": 420
-        },
-        {
-          "name": "Fudge (chocolate)",
-          "calories": 397
-        },
-        {
-          "name": "Hard candy / boiled sweets",
-          "calories": 394
-        },
-        {
-          "name": "Lollipop (fruit)",
-          "calories": 340
-        },
-        {
-          "name": "Marzipan",
-          "calories": 392
-        },
-        {
-          "name": "Nougat",
-          "calories": 380
-        },
-        {
-          "name": "Turkish delight (plain)",
-          "calories": 322
-        },
-        {
-          "name": "Halva (sesame)",
-          "calories": 469
-        },
-        {
-          "name": "Licorice (soft)",
-          "calories": 320
-        }
+        { "name": "Gummy bears", "calories": 330, "protein": 7 },
+        { "name": "Jelly beans", "calories": 367, "protein": 0 },
+        { "name": "Marshmallows", "calories": 318, "protein": 2 },
+        { "name": "Caramel (soft)", "calories": 382, "protein": 2 },
+        { "name": "Toffee", "calories": 420, "protein": 2 },
+        { "name": "Fudge (chocolate)", "calories": 397, "protein": 4 },
+        { "name": "Hard candy / boiled sweets", "calories": 394, "protein": 0 },
+        { "name": "Marzipan", "calories": 392, "protein": 4 },
+        { "name": "Turkish delight (plain)", "calories": 322, "protein": 1 },
+        { "name": "Halva (sesame)", "calories": 469, "protein": 11 },
+        { "name": "Licorice (soft)", "calories": 320, "protein": 4 }
       ],
       "pies_and_crumbles": [
-        {
-          "name": "Apple pie (with pastry)",
-          "calories": 237
-        },
-        {
-          "name": "Pumpkin pie",
-          "calories": 212
-        },
-        {
-          "name": "Pecan pie",
-          "calories": 456
-        },
-        {
-          "name": "Key lime pie",
-          "calories": 325
-        },
-        {
-          "name": "Blueberry pie",
-          "calories": 232
-        },
-        {
-          "name": "Cherry pie",
-          "calories": 240
-        },
-        {
-          "name": "Apple crumble (with custard)",
-          "calories": 210
-        },
-        {
-          "name": "Rhubarb crumble",
-          "calories": 190
-        }
+        { "name": "Apple pie (with pastry)", "calories": 237, "protein": 2 },
+        { "name": "Pumpkin pie", "calories": 212, "protein": 4 },
+        { "name": "Pecan pie", "calories": 456, "protein": 5 },
+        { "name": "Key lime pie", "calories": 325, "protein": 5 },
+        { "name": "Blueberry pie", "calories": 232, "protein": 2 },
+        { "name": "Apple crumble (with custard)", "calories": 210, "protein": 3 }
       ]
     }
   }
