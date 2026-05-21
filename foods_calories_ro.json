@@ -652,7 +652,8 @@
         { "name": "Sandwich mic dejun (ou și bacon)", "calories": 280, "protein": 14 },
         { "name": "Hot dog (chiflă + cârnat)", "calories": 290, "protein": 10 },
         { "name": "Kebab wrap (doner, pita, salată)", "calories": 230, "protein": 12 },
-        { "name": "Sandviș cu parizer Luca (180g)", "calories": 360, "protein": 8 }
+        { "name": "Sandviș cu parizer Luca (180g)", "calories": 360, "protein": 8 },
+        { "name": "Sandvis cu pui picant Luca", "calories": 530, "protein": 18 }
       ],
       "pizza": [
         { "name": "Pizza Margherita (blat subțire)", "calories": 220, "protein": 9 },
