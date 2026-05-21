@@ -651,7 +651,8 @@
         { "name": "Philly cheesesteak", "calories": 305, "protein": 16 },
         { "name": "Egg & bacon breakfast sandwich", "calories": 280, "protein": 14 },
         { "name": "Hot dog (bun + sausage)", "calories": 290, "protein": 10 },
-        { "name": "Kebab wrap (doner, pitta, salad)", "calories": 230, "protein": 12 }
+        { "name": "Kebab wrap (doner, pitta, salad)", "calories": 230, "protein": 12 },
+        { "name": "Luca bologna sandwich (180g)", "calories": 360, "protein": 8 }
       ],
       "pizza": [
         { "name": "Pizza Margherita (thin crust)", "calories": 220, "protein": 9 },
